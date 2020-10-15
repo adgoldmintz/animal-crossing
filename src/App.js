@@ -12,7 +12,7 @@ const App = () => {
     type: "",
   });
 
-  const { type, language, results } = state;
+  const { type, results } = state;
 
   const getCreatures = (e) => {
     let type = e.target.value;
@@ -41,12 +41,12 @@ const App = () => {
       <Heading />
       <FilterBar getCreatures={getCreatures} setLang={setLang} />
       <main>
-        <div>
+        <div className="results-wrapper">
           {results.map(({ id, name, icon_uri }) => (
-            <div key={id}>
+            <div key={id} className="results-item">
               <img
                 className="search-img"
-                src={`https://acnhapi.com/v1a/images/${type}/${id}`}
+                src={icon_uri}
                 alt="placeholder"
               />
             </div>

@@ -1,7 +1,11 @@
 import React from "react";
 
 const MainHeading = () => {
-  return <div>Welcome to this app - Heading Design TBD</div>;
+  return (
+    <div>
+     Here's the main heading
+    </div>
+  );
 };
 
 export default MainHeading;
