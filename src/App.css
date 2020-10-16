@@ -17,20 +17,32 @@ body {
     justify-content: center;
     align-items: center;
     background-color: bisque;
-
-
+  
 }
 
 .results-item {
-    padding: 10px;
+   margin: 10px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+   
+}
+
+.results-item :hover {
+   /* background-color: cadetblue; */
+   /* border: 2px dashed black; */
+   /* https://kovart.github.io/dashed-border-generator/ */
+   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
 .search-img {
-  height: 100px;
-  width: 100px;
-  border-style: 5px solid black;
-
+    height: 100%;
+    width: 100%;   
 }
+
+
 
 .filter-wrapper{
     display: flex;
