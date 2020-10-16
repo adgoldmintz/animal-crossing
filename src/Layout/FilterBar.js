@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 const FilterBar = ({ getCreatures, setLang }) => (
-  <Fragment>
-    <div className="filter-wrapper">
+  <div className="filter-wrapper">
+    <div className="species-filters">
       <button value="bugs" onClick={getCreatures}>
         Bugs
       </button>
@@ -10,7 +10,7 @@ const FilterBar = ({ getCreatures, setLang }) => (
         Fish
       </button>
 
-      <div className="filter-wrapper">
+      <div className="language-filters">
         <button value="English" onClick={setLang}>
           English
         </button>
@@ -19,7 +19,7 @@ const FilterBar = ({ getCreatures, setLang }) => (
         </button>
       </div>
     </div>
-  </Fragment>
+  </div>
 );
 
 export default FilterBar;

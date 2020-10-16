@@ -6,7 +6,42 @@ body {
     margin: 0px
 }
 
+.main-heading {
+    margin-top: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 
+.filter-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   margin: 50px
+}
+
+.species-filters {
+    display: flex;
+    
+}
+
+.species-filters > button {
+    margin-right: 10px;
+    border-radius: 50%;
+    border: none;
+}
+
+.language-filters {
+    display: flex;
+    align-content: flex-end;
+}
+
+.language-filters > button {
+    margin-right: 10px;
+    border-radius: 50%;
+    border: none;
+}
 
 /* results table  */
 .results-wrapper, .loading{
@@ -17,7 +52,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: bisque;
-  
+    border: 2px solid black;
 }
 
 .results-item {
@@ -42,12 +77,6 @@ body {
     width: 100%;   
 }
 
-
-
-.filter-wrapper{
-    display: flex;
-    flex-direction: row;
-}
 
 
 
