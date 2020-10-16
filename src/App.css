@@ -1,86 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0px
+  display: flex;
+  height: 100vh;
+  margin: 0px;
+  background-image: url("../src/assets/background-leaves.png");
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  flex-direction: column;
+  align-items: center;
+  justify-content: centers;
+  height: 100vh;
 }
 
 .main-heading {
-    margin-top: 20px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.filter-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-   margin: 50px
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px;
 }
 
 .species-filters {
-    display: flex;
-    
+  display: flex;
 }
 
 .species-filters > button {
-    margin-right: 10px;
-    border-radius: 50%;
-    border: none;
+  margin-right: -5px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  background-color: lightcoral;
+  color: white;
+  font-size: 16px;
+  border: none;
+}
+.species-filters > button:hover {
+  color: black;
+  cursor: pointer;
 }
 
 .language-filters {
-    display: flex;
-    align-content: flex-end;
+  display: flex;
+  align-content: flex-end;
 }
 
 .language-filters > button {
-    margin-right: 10px;
-    border-radius: 50%;
-    border: none;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: none;
 }
 
+/* detail card */
+
+.details-wrapper {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  background-color: whitesmoke;
+  align-content: center;
+  padding: 20px;
+  display: flex;
+  border: 5px solid;
+  border-radius: 10px;
+}
+
+
+
 /* results table  */
-.results-wrapper, .loading{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 50px;
-    justify-content: center;
-    align-items: center;
-    background-color: bisque;
-    border: 2px solid black;
+.results-wrapper {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #8dc9a4;
 }
 
 .results-item {
-   margin: 10px;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-   
+  margin: 10px;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .results-item :hover {
-   /* background-color: cadetblue; */
-   /* border: 2px dashed black; */
-   /* https://kovart.github.io/dashed-border-generator/ */
-   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  /* background-color: cadetblue; */
+  /* border: 2px dashed black; */
+  /* https://kovart.github.io/dashed-border-generator/ */
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
 .search-img {
-    height: 100%;
-    width: 100%;   
+  align-self: center;
+  height: 75%;
+  width: 75%;
 }
 
-
-
-
- /* TODO: box shadow for detailed img later */
- /* -webkit-box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75);
+/* TODO: box shadow for detailed img later */
+/* -webkit-box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75);
  -moz-box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75);
  box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75); */
+
+/* TODO: Greyscale teaser icons if item is unavailable
+ filter: grayscale(100%); */
