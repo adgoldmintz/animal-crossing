@@ -50,10 +50,10 @@ main {
 }
 
 .filter-icon {
-    cursor: pointer;
-    width: 100%;
-    filter: grayscale(100%);
-  }
+  cursor: pointer;
+  width: 100%;
+  filter: grayscale(100%);
+}
 
 .language-filters {
   display: flex;
@@ -64,6 +64,14 @@ main {
   margin-right: 10px;
   border-radius: 50%;
   border: none;
+}
+
+.search-form input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 5px solid lightcoral;
+  color: #555;
+  font-size: 16px;
 }
 
 /* detail card */

@@ -10,6 +10,7 @@ const App = () => {
   //set up state management
   const [state, setFilters] = useState({
     language: "USen",
+    searchTerm: undefined,
     results: null,
     type: null,
     viewDetailsModal: false,
@@ -33,8 +34,32 @@ const App = () => {
     //eslint-disable-next-line
   }, []);
 
+  //search handlers
+  const handleSearchChange = (e) => {
+    let searchTerm = e.target.value;
+
+    if (searchTerm !== "") {
+      setFilters({
+        ...state,
+        searchTerm,
+        results: results.filter((creature) =>
+          creature.name[`name-${language}`].includes(searchTerm)
+        ),
+      });
+    }
+    console.log(state.searchTerm);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setFilters({
+      ...state,
+      searchTerm: "",
+    });
+  };
+
   const getCreatures = (e) => {
-    let type = e.target.value;
+    let type = e.currentTarget.value;
 
     fetch(`https://acnhapi.com/v1a/${type}`)
       .then((response) => response.json())
@@ -99,7 +124,12 @@ const App = () => {
   return (
     <div>
       <Heading />
-      <FilterBar getCreatures={getCreatures} setLang={setLang} />
+      <FilterBar
+        searchChange={handleSearchChange}
+        searchSubmit={handleSearchSubmit}
+        getCreatures={getCreatures}
+        setLang={setLang}
+      />
 
       {viewDetailsModal && (
         <DetailsView
@@ -113,6 +143,7 @@ const App = () => {
       )}
 
       <main>
+        {/* TODO: Add no results found state */}
         {results && (
           <div className="results-wrapper">
             {results.map(({ id, name, icon_uri, image_uri }) => (

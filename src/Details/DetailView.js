@@ -21,7 +21,7 @@ const DetailView = ({
         <i className="fas fa-times-circle" onClick={toggleDetailModal} />
       </div>
       <div className="details-content">
-        <div>NAME: {name[`name-${lang}`]}</div>
+        <div>{name[`name-${lang}`]}</div>
 
         <img src={image_uri} alt={name[`name-${lang}`]} />
       </div>
