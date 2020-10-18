@@ -1,16 +1,23 @@
 import React from "react";
 
-const DetailView = ({ selected: { id, name, image_uri}, lang }) => {
+const DetailView = ({
+  selected: { id, name, image_uri },
+  lang,
+  resultsLength,
+  getNext,
+  getPrev,
+  toggleDetailModal
+}) => {
   return (
     <div className="details-wrapper">
       <div className="details-content">
-
-        <p>details here : {id}</p>
-
+      {id !== 1 && <button onClick={getPrev}>PREV</button>}
+      {id !== resultsLength && <button onClick={getNext}>NEXT</button>}
+      <button onClick={toggleDetailModal}>X</button>
+      <br></br>
         <div>NAME: {name[`name-${lang}`]}</div>
-        <button>NEXT</button>
        
-        <img src={image_uri} alt={name[`name-${lang}`]}/>
+        <img src={image_uri} alt={name[`name-${lang}`]} />
       </div>
     </div>
   );

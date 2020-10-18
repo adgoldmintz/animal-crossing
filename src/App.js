@@ -6,20 +6,19 @@ import Heading from "./Layout/MainHeading";
 import FilterBar from "./Layout/FilterBar";
 import DetailsView from "./Details/DetailView";
 
+
 const App = () => {
   //set up state management
   const [state, setFilters] = useState({
     language: "USen",
     results: null,
     type: null,
-    viewDetails: false,
+    viewDetailsModal: false,
     currentItem: {},
   });
 
   //destructure state for easy reference
-  const { results, viewDetails, currentItem, language } = state;
-
-  console.log(currentItem);
+  const { results, viewDetailsModal, currentItem, language, type } = state;
 
   //load bugs on as default view on initial render
   useEffect(() => {
@@ -28,6 +27,7 @@ const App = () => {
       .then((results) =>
         setFilters({
           ...state,
+          type: "bugs",
           results,
         })
       );
@@ -55,12 +55,68 @@ const App = () => {
     });
   };
 
+  const getNext = () => {
+    let nextID = currentItem.id + 1;
+
+    fetch(`https://acnhapi.com/v1a/${type}/${nextID}`)
+      .then((response) => response.json())
+      .then((results) =>
+        setFilters({
+          ...state,
+          currentItem: {
+            id: results.id,
+            name: results.name,
+            image_uri: results.image_uri,
+          },
+        })
+      );
+  };
+
+  const getPrev = () => {
+    let nextID = currentItem.id - 1;
+
+    fetch(`https://acnhapi.com/v1a/${type}/${nextID}`)
+      .then((response) => response.json())
+      .then((results) =>
+        setFilters({
+          ...state,
+          currentItem: {
+            id: results.id,
+            name: results.name,
+            image_uri: results.image_uri,
+          },
+        })
+      );
+  };
+
+  const toggleDetailModal = () => {
+    setFilters({
+      ...state,
+      viewDetailsModal: !viewDetailsModal,
+      currentItem: {}
+    })
+  }
+
   //begin render
   return (
     <div>
       <Heading />
-      <FilterBar getCreatures={getCreatures} setLang={setLang} />
-      {viewDetails && <DetailsView selected={currentItem} lang={language} />}
+      <FilterBar 
+        getCreatures={getCreatures} 
+        setLang={setLang} 
+      />
+
+      {viewDetailsModal
+        && (
+        <DetailsView
+          selected={currentItem}
+          lang={language}
+          getNext={getNext}
+          getPrev={getPrev}
+          resultsLength={results + 1}
+          toggleDetailModal={toggleDetailModal}
+        />
+      )}
 
       <main>
         {results && (
@@ -74,11 +130,11 @@ const App = () => {
                   onClick={() =>
                     setFilters({
                       ...state,
-                      viewDetails: !viewDetails,
+                      viewDetailsModal: !viewDetailsModal,
                       currentItem: {
                         id: id,
                         name: name,
-                        image_uri: image_uri
+                        image_uri: image_uri,
                       },
                     })
                   }
