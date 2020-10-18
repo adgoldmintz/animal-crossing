@@ -6,7 +6,6 @@ import Heading from "./Layout/MainHeading";
 import FilterBar from "./Layout/FilterBar";
 import DetailsView from "./Details/DetailView";
 
-
 const App = () => {
   //set up state management
   const [state, setFilters] = useState({
@@ -93,21 +92,17 @@ const App = () => {
     setFilters({
       ...state,
       viewDetailsModal: !viewDetailsModal,
-      currentItem: {}
-    })
-  }
+      currentItem: {},
+    });
+  };
 
   //begin render
   return (
     <div>
       <Heading />
-      <FilterBar 
-        getCreatures={getCreatures} 
-        setLang={setLang} 
-      />
+      <FilterBar getCreatures={getCreatures} setLang={setLang} />
 
-      {viewDetailsModal
-        && (
+      {viewDetailsModal && (
         <DetailsView
           selected={currentItem}
           lang={language}

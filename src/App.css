@@ -76,6 +76,12 @@ main {
   border-radius: 10px;
 }
 
+.details-controls {
+    display: flex;
+    width: 100%;
+    align-content: space-between;
+}
+
 /* results table  */
 .results-wrapper {
   border-radius: 30px;
