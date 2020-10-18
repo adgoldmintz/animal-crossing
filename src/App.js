@@ -95,7 +95,6 @@ const App = () => {
       currentItem: {},
     });
   };
-
   //begin render
   return (
     <div>

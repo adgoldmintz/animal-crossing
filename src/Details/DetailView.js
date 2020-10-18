@@ -9,11 +9,12 @@ const DetailView = ({
   toggleDetailModal,
 }) => {
   return (
-
     //TODO: Don't display modal until all props are loaded
     <div className="details-wrapper">
       <div className="details-controls">
-        {id !== 1 && <i className="fas fa-arrow-circle-left" onClick={getPrev} />}
+        {id !== 1 && (
+          <i className="fas fa-arrow-circle-left" onClick={getPrev} />
+        )}
         {id !== resultsLength && (
           <i className="fas fa-arrow-circle-right" onClick={getNext} />
         )}

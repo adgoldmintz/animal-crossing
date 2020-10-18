@@ -43,10 +43,17 @@ main {
   font-size: 16px;
   border: none;
 }
+
 .species-filters > button:hover {
   color: black;
   cursor: pointer;
 }
+
+.filter-icon {
+    cursor: pointer;
+    width: 100%;
+    filter: grayscale(100%);
+  }
 
 .language-filters {
   display: flex;
@@ -77,9 +84,9 @@ main {
 }
 
 .details-controls {
-    display: flex;
-    width: 100%;
-    align-content: space-between;
+  display: flex;
+  width: 100%;
+  align-content: space-between;
 }
 
 /* results table  */
@@ -111,6 +118,7 @@ main {
 }
 
 .search-img {
+  image-rendering: crisp-edges;
   align-self: center;
   height: 75%;
   width: 75%;
