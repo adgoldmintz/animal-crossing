@@ -13,19 +13,19 @@ const App = () => {
     searchTerm: "",
     results: [],
     type: undefined,
-    viewDetailsModal: false,
     currentItem: {},
     loading: false,
+    showDetailModal: false,
   });
 
-  //destructure state for easy reference
+  //destructure filter state for easy reference
   const {
     results,
-    viewDetailsModal,
     currentItem,
     language,
     type,
     searchTerm,
+    showDetailModal,
   } = state;
 
   //fetch 'bugs' data set on as default view on initial render
@@ -113,11 +113,19 @@ const App = () => {
       );
   };
 
+  //handle click outside of modal to close modal
+  const [isOpenModal, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", () => {
+      setIsOpen(!isOpenModal);
+    });
+  });
+
   const toggleDetailModal = () => {
     setFilters({
       ...state,
-      viewDetailsModal: !viewDetailsModal,
-      currentItem: {},
+      showDetailModal: !showDetailModal,
     });
   };
 
@@ -132,7 +140,7 @@ const App = () => {
         searchTerm={searchTerm}
       />
 
-      {viewDetailsModal && (
+      {showDetailModal && (
         <DetailsView
           selected={currentItem}
           lang={language}
@@ -144,7 +152,6 @@ const App = () => {
       )}
 
       <main>
-        {/* TODO: Add no results found state */}
         {results && (
           <div className="results-wrapper">
             {filteredResults.map(({ id, name, icon_uri, image_uri }) => (
@@ -156,7 +163,7 @@ const App = () => {
                   onClick={() =>
                     setFilters({
                       ...state,
-                      viewDetailsModal: !viewDetailsModal,
+                      showDetailModal: !showDetailModal,
                       currentItem: {
                         id: id,
                         name: name,
@@ -165,7 +172,6 @@ const App = () => {
                     })
                   }
                 />
-                {/*} <p>{name["name-USen"]}</p>*/}
               </div>
             ))}
           </div>
@@ -180,3 +186,6 @@ export default App;
 //TODO:
 //add No critters found state
 // add loading state to wait until all data is loaded before mapping
+
+// NOTES:
+// <p>{name["name-USen"]}</p>

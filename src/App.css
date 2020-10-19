@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+/* font */
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,500,700,800,900&display=swap");
+
 
 body {
   display: flex;
   height: 100vh;
   margin: 0px;
   background-image: url("../src/assets/background-leaves.png");
-  font-family: "Roboto", sans-serif;
+  /* TODO: Add transparency and shrink repeat of background image */
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 main {
@@ -19,7 +22,10 @@ main {
   display: flex;
   align-content: center;
   justify-content: center;
-  align-items: center;
+}
+
+.acnh-logo {
+  height: 250px;
 }
 
 .filter-wrapper {
