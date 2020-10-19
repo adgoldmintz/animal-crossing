@@ -3,7 +3,7 @@ import bugsIcon from "../assets/bugs.png";
 import fishIcon from "../assets/fish.png";
 import seaIcon from "../assets/sea.png";
 
-const FilterBar = ({ getCreatures, setLang, searchChange, searchSubmit }) => (
+const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => (
   <div className="filter-wrapper">
     <div className="species-filters">
       <button value="bugs" onClick={getCreatures}>
@@ -17,10 +17,11 @@ const FilterBar = ({ getCreatures, setLang, searchChange, searchSubmit }) => (
       </button>
     </div>
 
-    <form className="search-form" onSubmit={searchSubmit}>
+    <form className="search-form">
       <input
         type="text"
         placeholder="search critters"
+        value={searchTerm}
         onChange={searchChange}
       />
     </form>

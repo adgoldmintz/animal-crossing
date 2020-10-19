@@ -10,17 +10,25 @@ const App = () => {
   //set up state management
   const [state, setFilters] = useState({
     language: "USen",
-    searchTerm: undefined,
-    results: null,
-    type: null,
+    searchTerm: "",
+    results: [],
+    type: undefined,
     viewDetailsModal: false,
     currentItem: {},
+    loading: false,
   });
 
   //destructure state for easy reference
-  const { results, viewDetailsModal, currentItem, language, type } = state;
+  const {
+    results,
+    viewDetailsModal,
+    currentItem,
+    language,
+    type,
+    searchTerm,
+  } = state;
 
-  //load bugs on as default view on initial render
+  //fetch 'bugs' data set on as default view on initial render
   useEffect(() => {
     fetch(`https://acnhapi.com/v1a/bugs`)
       .then((response) => response.json())
@@ -34,38 +42,30 @@ const App = () => {
     //eslint-disable-next-line
   }, []);
 
-  //search handlers
+  // live search handler
   const handleSearchChange = (e) => {
     let searchTerm = e.target.value;
-
-    if (searchTerm !== "") {
-      setFilters({
-        ...state,
-        searchTerm,
-        results: results.filter((creature) =>
-          creature.name[`name-${language}`].includes(searchTerm)
-        ),
-      });
-    }
-    console.log(state.searchTerm);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
     setFilters({
       ...state,
-      searchTerm: "",
+      searchTerm,
     });
   };
 
+  //declare filtered results outside of state
+  //this subset is mapped in render below
+  let filteredResults = results.filter((creature) =>
+    creature.name[`name-${language}`].includes(searchTerm)
+  );
+
+  //set creature type and fetch data set
   const getCreatures = (e) => {
     let type = e.currentTarget.value;
-
     fetch(`https://acnhapi.com/v1a/${type}`)
       .then((response) => response.json())
       .then((results) =>
         setFilters({
           ...state,
+          searchTerm: "",
           type,
           results,
         })
@@ -120,15 +120,16 @@ const App = () => {
       currentItem: {},
     });
   };
+
   //begin render
   return (
     <div>
       <Heading />
       <FilterBar
         searchChange={handleSearchChange}
-        searchSubmit={handleSearchSubmit}
         getCreatures={getCreatures}
         setLang={setLang}
+        searchTerm={searchTerm}
       />
 
       {viewDetailsModal && (
@@ -137,7 +138,7 @@ const App = () => {
           lang={language}
           getNext={getNext}
           getPrev={getPrev}
-          resultsLength={results + 1}
+          resultsLength={results.length}
           toggleDetailModal={toggleDetailModal}
         />
       )}
@@ -146,7 +147,7 @@ const App = () => {
         {/* TODO: Add no results found state */}
         {results && (
           <div className="results-wrapper">
-            {results.map(({ id, name, icon_uri, image_uri }) => (
+            {filteredResults.map(({ id, name, icon_uri, image_uri }) => (
               <div key={id} className="results-item">
                 <img
                   className="search-img"
@@ -177,4 +178,5 @@ const App = () => {
 export default App;
 
 //TODO:
+//add No critters found state
 // add loading state to wait until all data is loaded before mapping
