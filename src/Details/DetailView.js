@@ -23,7 +23,7 @@ const DetailView = ({
       <div className="details-content">
         <div>{name[`name-${lang}`]}</div>
         <div>{phrase}</div>
-        <img src={image_uri} alt={name[`name-${lang}`]} />
+        <img className="detail-img" src={image_uri} alt={name[`name-${lang}`]} />
       </div>
     </div>
   );
