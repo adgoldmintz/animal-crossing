@@ -12,7 +12,7 @@ const App = () => {
     language: "USen",
     searchTerm: "",
     results: [],
-    type: undefined,
+    types: undefined,
     currentItem: {},
     loading: false,
     showDetailModal: false,
@@ -184,4 +184,3 @@ export default App;
 //TODO:
 //add No critters found state
 // add loading state to wait until all data is loaded before mapping
-

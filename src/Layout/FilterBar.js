@@ -1,40 +1,59 @@
-import React from "react";
-import bugsIcon from "../assets/bugs.png";
-import fishIcon from "../assets/fish.png";
-import seaIcon from "../assets/sea.png";
+import React, { Fragment, useState } from "react";
 
-const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => (
-  <div className="filter-wrapper">
-    <div className="species-filters">
-      <button value="bugs" onClick={getCreatures}>
-        <img className="filter-icon" src={bugsIcon} alt="bug icon" />
-      </button>
-      <button value="fish" onClick={getCreatures}>
-        <img className="filter-icon" src={fishIcon} alt="fish icon" />
-      </button>
-      <button value="sea" onClick={getCreatures}>
-        <img className="filter-icon" src={seaIcon} alt="sea creature icon" />
-      </button>
-    </div>
+const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => {
+  const types = ["bugs", "fish", "sea"];
 
-    <form className="search-form">
-      <input
-        type="text"
-        placeholder="search critters"
-        value={searchTerm}
-        onChange={searchChange}
-      />
-    </form>
+  //handle style changes to active button
+  //TODO: Update colors. Red is a placeholder
+  //TODO : Add same logic to language toggles
+  const [active, setActive] = useState(types[0]);
+  const activeBtn = {
+    backgroundColor: "#FF0000",
+  };
 
-    <div className="language-filters">
-      <button value="USen" onClick={setLang}>
-        English
-      </button>
-      <button value="JPja" onClick={setLang}>
-        日本語
-      </button>
-    </div>
-  </div>
-);
+  return (
+    <Fragment>
+      <div className="filter-wrapper">
+        <div className="species-filters">
+          {types.map((type, i) => (
+            <button
+              style={active === type ? activeBtn : null}
+              key={type}
+              value={type}
+              onClick={(e) => {
+                getCreatures(e);
+                setActive(types[i]);
+              }}
+            >
+              <img
+                className="filter-icon"
+                src={require(`../assets/${type}.png`)}
+                alt={`${type} icon`}
+              />
+            </button>
+          ))}
+        </div>
+
+        <form className="search-form">
+          <input
+            type="text"
+            placeholder="search critters"
+            value={searchTerm}
+            onChange={searchChange}
+          />
+        </form>
+
+        <div className="language-filters">
+          <button value="USen" onClick={setLang}>
+            English
+          </button>
+          <button value="JPja" onClick={setLang}>
+            日本語
+          </button>
+        </div>
+      </div>
+    </Fragment>
+  );
+};
 
 export default FilterBar;
