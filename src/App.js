@@ -28,7 +28,7 @@ const App = () => {
     showDetailModal,
   } = state;
 
-  //fetch 'bugs' data set on as default view on initial render
+  //fetch 'bugs' data set as default view on initial mount
   useEffect(() => {
     fetch(`https://acnhapi.com/v1a/bugs`)
       .then((response) => response.json())
@@ -72,6 +72,7 @@ const App = () => {
       );
   };
 
+  //toggle language (English or Japanese)
   const setLang = (e) => {
     setFilters({
       ...state,
@@ -79,6 +80,7 @@ const App = () => {
     });
   };
 
+  // move forward and backward through selected critter in detail view
   const getNext = () => {
     let nextID = currentItem.id + 1;
 
@@ -113,15 +115,7 @@ const App = () => {
       );
   };
 
-  //handle click outside of modal to close modal
-  const [isOpenModal, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    document.addEventListener("mousedown", () => {
-      setIsOpen(!isOpenModal);
-    });
-  });
-
+  //toggle detail card visible and hidden
   const toggleDetailModal = () => {
     setFilters({
       ...state,
@@ -129,7 +123,7 @@ const App = () => {
     });
   };
 
-  //begin render
+  //begin view render
   return (
     <div>
       <Heading />
@@ -154,26 +148,30 @@ const App = () => {
       <main>
         {results && (
           <div className="results-wrapper">
-            {filteredResults.map(({ id, name, icon_uri, image_uri }) => (
-              <div key={id} className="results-item">
-                <img
-                  className="search-img"
-                  src={icon_uri}
-                  alt={name["name-USen"]}
-                  onClick={() =>
-                    setFilters({
-                      ...state,
-                      showDetailModal: !showDetailModal,
-                      currentItem: {
-                        id: id,
-                        name: name,
-                        image_uri: image_uri,
-                      },
-                    })
-                  }
-                />
-              </div>
-            ))}
+            {filteredResults.map(
+              ({ id, name, icon_uri, image_uri, ...others }) => (
+                <div key={id} className="results-item">
+                  <img
+                    className="search-img"
+                    src={icon_uri}
+                    alt={name["name-USen"]}
+                    onClick={() =>
+                      setFilters({
+                        ...state,
+                        showDetailModal: !showDetailModal,
+                        currentItem: {
+                          id,
+                          name,
+                          image_uri,
+                          // others not destructured because JSON phrase key has a dash - boooo!
+                          phrase: others["catch-phrase"],
+                        },
+                      })
+                    }
+                  />
+                </div>
+              )
+            )}
           </div>
         )}
       </main>
@@ -187,5 +185,3 @@ export default App;
 //add No critters found state
 // add loading state to wait until all data is loaded before mapping
 
-// NOTES:
-// <p>{name["name-USen"]}</p>
