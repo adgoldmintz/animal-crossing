@@ -45,10 +45,10 @@ const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => {
         </form>
 
         <div className="language-filters">
-          <button value="USen" onClick={setLang}  className="species-btn">
+          <button value="USen" onClick={setLang} className="species-btn">
             E
           </button>
-          <button value="JPja" onClick={setLang}  className="species-btn">
+          <button value="JPja" onClick={setLang} className="species-btn">
             JP
           </button>
         </div>

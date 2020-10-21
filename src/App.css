@@ -133,6 +133,11 @@ main {
   width: 75%;
 }
 
+#no-results-img {
+  height: 100px;
+  
+}
+
 /* TODO: box shadow for detailed img later */
 /* -webkit-box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75);
  -moz-box-shadow: 0px 10px 12px -9px rgba(0, 0, 0, 0.75);

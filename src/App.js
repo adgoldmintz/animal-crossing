@@ -5,6 +5,7 @@ import "./App.css";
 import Heading from "./layout/MainHeading";
 import FilterBar from "./filter-search/FilterBar";
 import DetailsView from "./details/DetailView";
+import ResultsGrid from "./filter-search/Results";
 
 const App = () => {
   //set up state management
@@ -52,10 +53,25 @@ const App = () => {
   };
 
   //declare filtered results outside of state
-  //this subset is mapped in render below
-  let filteredResults = results.filter((creature) =>
+  //this subset is mapped in ResultsGrid child render below
+  let searchResults = results.filter((creature) =>
     creature.name[`name-${language}`].includes(searchTerm.toLocaleLowerCase())
   );
+
+  const setDetailItem = ({ id, name, icon_uri, image_uri, ...others }) =>
+    setFilters({
+      ...state,
+      showDetailModal: !showDetailModal,
+      currentItem: {
+        id,
+        name,
+        image_uri,
+        // others not destructured because JSON phrase key has a dash - boooo!
+        phrase: others["catch-phrase"],
+      },
+    });
+
+  //show results or no search results found
 
   //set creature type and fetch data set
   const getCreatures = (e) => {
@@ -73,12 +89,11 @@ const App = () => {
   };
 
   //toggle language (English or Japanese)
-  const setLang = (e) => {
+  const setLang = (e) =>
     setFilters({
       ...state,
       language: e.target.value,
     });
-  };
 
   // move forward and backward through selected critter in detail view
   const getNext = () => {
@@ -127,6 +142,7 @@ const App = () => {
   return (
     <div>
       <Heading />
+
       <FilterBar
         searchChange={handleSearchChange}
         getCreatures={getCreatures}
@@ -146,35 +162,12 @@ const App = () => {
       )}
 
       <main>
-        {results && (
-          <div className="results-wrapper">
-            {filteredResults.map(
-              ({ id, name, icon_uri, image_uri, ...others }) => (
-                <div key={id} className="results-item">
-                  <img
-                    className="search-img"
-                    src={icon_uri}
-                    alt={name["name-USen"]}
-                    onClick={() =>
-                      setFilters({
-                        ...state,
-                        showDetailModal: !showDetailModal,
-                        currentItem: {
-                          id,
-                          name,
-                          image_uri,
-                          // others not destructured because JSON phrase key has a dash - boooo!
-                          phrase: others["catch-phrase"],
-                        },
-                      })
-                    }
-                  />
-                </div>
-              )
-            )}
-          </div>
-        )}
+        <ResultsGrid
+          searchResults={searchResults}
+          setDetailItem={setDetailItem}
+        />
       </main>
+
     </div>
   );
 };
