@@ -1,8 +1,11 @@
 import React from "react";
 import noResults from "../assets/twins.png";
 
-const ResultsGrid = ({ searchResults, setDetailItem }) => {
-  if (searchResults.length < 1) {
+const ResultsGrid = ({ searchResults, setDetailItem, term }) => {
+
+
+
+  if (searchResults.length < 1 && term) {
     return (
       <div>
         <p>No critters found!</p>

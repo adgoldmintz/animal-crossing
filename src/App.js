@@ -158,6 +158,7 @@ const App = () => {
         <ResultsGrid
           searchResults={searchResults}
           setDetailItem={setDetailItem}
+          term={searchTerm}
         />
       </main>
     </div>
