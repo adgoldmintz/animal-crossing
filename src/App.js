@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 //import child components
-import Heading from "./Layout/MainHeading";
-import FilterBar from "./Layout/FilterBar";
-import DetailsView from "./Details/DetailView";
+import Heading from "./layout/MainHeading";
+import FilterBar from "./filter-search/FilterBar";
+import DetailsView from "./details/DetailView";
 
 const App = () => {
   //set up state management
@@ -54,7 +54,7 @@ const App = () => {
   //declare filtered results outside of state
   //this subset is mapped in render below
   let filteredResults = results.filter((creature) =>
-    creature.name[`name-${language}`].includes(searchTerm)
+    creature.name[`name-${language}`].includes(searchTerm.toLocaleLowerCase())
   );
 
   //set creature type and fetch data set
