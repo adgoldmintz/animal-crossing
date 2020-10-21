@@ -11,7 +11,7 @@ const DetailView = ({
   return (
     //TODO: Don't display modal until all props are loaded
     <div className="details-wrapper">
-      <div className="details-controls">
+      <section className="details-controls">
         {id !== 1 && (
           <i className="fas fa-arrow-circle-left" onClick={getPrev} />
         )}
@@ -19,10 +19,12 @@ const DetailView = ({
           <i className="fas fa-arrow-circle-right" onClick={getNext} />
         )}
         <i className="fas fa-times-circle" onClick={toggleDetailModal} />
-      </div>
-      <div className="details-content">
+      </section>
+      <section className="details-heading">
         <div>{name[`name-${lang}`]}</div>
         <div>{phrase}</div>
+      </section>
+      <div className="details-content">
         <img
           className="detail-img"
           src={image_uri}

@@ -17,6 +17,7 @@ const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => {
         <div className="species-filters">
           {types.map((type, i) => (
             <button
+              className="species-btn"
               style={active === type ? activeBtn : null}
               key={type}
               value={type}
@@ -44,11 +45,11 @@ const FilterBar = ({ getCreatures, setLang, searchChange, searchTerm }) => {
         </form>
 
         <div className="language-filters">
-          <button value="USen" onClick={setLang}>
-            English
+          <button value="USen" onClick={setLang}  className="species-btn">
+            E
           </button>
-          <button value="JPja" onClick={setLang}>
-            日本語
+          <button value="JPja" onClick={setLang}  className="species-btn">
+            JP
           </button>
         </div>
       </div>
