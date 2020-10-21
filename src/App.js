@@ -42,6 +42,22 @@ const App = () => {
     //eslint-disable-next-line
   }, []);
 
+
+    //set creature type and fetch data set
+    const getCreatures = (e) => {
+      let type = e.currentTarget.value;
+      fetch(`https://acnhapi.com/v1a/${type}`)
+        .then((response) => response.json())
+        .then((results) =>
+          setFilters({
+            ...state,
+            searchTerm: "",
+            type,
+            results
+          })
+        );
+    };
+
   // live search handler
   const handleSearchChange = (e) => {
     let searchTerm = e.target.value;
@@ -57,7 +73,7 @@ const App = () => {
     creature.name[`name-${language}`].includes(searchTerm.toLocaleLowerCase())
   );
 
-  const setDetailItem = ({ id, name, icon_uri, image_uri, ...others }) =>
+  const setDetailItem = ({ id, name, icon_uri, image_uri, availability, price, ...others }) =>
     setFilters({
       ...state,
       showDetailModal: !showDetailModal,
@@ -65,25 +81,15 @@ const App = () => {
         id,
         name,
         image_uri,
+        location: availability.location,
+        rarity: availability.rarity,
         // others not destructured because JSON phrase key has a dash - boooo!
         phrase: others["catch-phrase"],
+        price
       },
     });
 
-  //set creature type and fetch data set
-  const getCreatures = (e) => {
-    let type = e.currentTarget.value;
-    fetch(`https://acnhapi.com/v1a/${type}`)
-      .then((response) => response.json())
-      .then((results) =>
-        setFilters({
-          ...state,
-          searchTerm: "",
-          type,
-          results,
-        })
-      );
-  };
+    console.log(currentItem)
 
   //toggle language (English or Japanese)
   const setLang = (e) =>
@@ -93,32 +99,28 @@ const App = () => {
     });
 
   // move forward and backward through selected critter in detail view
-  const getNext = () => {
-    let nextID = currentItem.id + 1;
+  const setCreatureDetail = (index) => {
     setFilters({
       ...state,
       currentItem: {
-        id: results[nextID].id,
-        name: results[nextID].name,
-        image_uri: results[nextID].image_uri,
-        phrase: results[nextID]["catch-phrase"]
+        id: results[index].id,
+        name: results[index].name,
+        image_uri: results[index].image_uri,
+        location: results[index].location,
+        phrase: results[index]["catch-phrase"],
+        price: results[index].price,
       },
     });
+  }
+  
+  const getNext = () => {
+    let nextIndex = currentItem.id + 1;
+    setCreatureDetail(nextIndex)
   };
 
   const getPrev = () => {
-    let prevID = currentItem.id - 2;
-    console.log(`prev clicked and prev ID is ${prevID}`)
-    setFilters({
-      ...state,
-      currentItem: {
-        id: results[prevID].id,
-        name: results[prevID].name,
-        image_uri: results[prevID].image_uri,
-        phrase: results[prevID]["catch-phrase"]
-      },
-    });
-    
+    let prevIndex = currentItem.id - 2;
+    setCreatureDetail(prevIndex)
   };
 
   //toggle detail card visible and hidden
