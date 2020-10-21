@@ -1,7 +1,7 @@
 import React from "react";
 
 const DetailView = ({
-  selected: { id, name, image_uri, location, rarity, price, phrase },
+  selected: { id, name, image_uri, location, rarity, price, phrase, flickPrice },
   lang,
   resultsLength,
   getNext,
@@ -36,7 +36,7 @@ const DetailView = ({
         />
         <p>Location: {location}</p>
         <p>Rarity: {rarity}</p>
-        <p>Price: {price} (or ["price-flick"] when sold to Flick)</p>
+        <p>Price: {price} (or {flickPrice} when sold to Flick)</p>
       </div>
     </div>
   );

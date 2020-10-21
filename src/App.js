@@ -85,7 +85,8 @@ const App = () => {
         rarity: availability.rarity,
         // others not destructured because JSON phrase key has a dash - boooo!
         phrase: others["catch-phrase"],
-        price
+        price,
+        flickPrice: others["price-flick"]
       },
     });
 
@@ -109,6 +110,7 @@ const App = () => {
         location: results[index].location,
         phrase: results[index]["catch-phrase"],
         price: results[index].price,
+        flickPrice: results[index]["price-flick"]
       },
     });
   }
