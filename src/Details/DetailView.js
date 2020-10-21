@@ -8,6 +8,8 @@ const DetailView = ({
   getPrev,
   toggleDetailModal,
 }) => {
+  const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
   return (
     //TODO: Don't display modal until all props are loaded
     <div className="details-wrapper">
@@ -21,7 +23,9 @@ const DetailView = ({
         <i className="fas fa-times-circle" onClick={toggleDetailModal} />
       </section>
       <section className="details-heading">
-        <div>{name[`name-${lang}`]}</div>
+        <div>
+          {name[`name-${lang}`].split(" ").map(capitalizeFirst).join(" ")}
+        </div>
         <div>{phrase}</div>
       </section>
       <div className="details-content">

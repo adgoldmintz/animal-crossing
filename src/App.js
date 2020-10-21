@@ -24,7 +24,6 @@ const App = () => {
     results,
     currentItem,
     language,
-    type,
     searchTerm,
     showDetailModal,
   } = state;
@@ -71,8 +70,6 @@ const App = () => {
       },
     });
 
-  //show results or no search results found
-
   //set creature type and fetch data set
   const getCreatures = (e) => {
     let type = e.currentTarget.value;
@@ -98,36 +95,30 @@ const App = () => {
   // move forward and backward through selected critter in detail view
   const getNext = () => {
     let nextID = currentItem.id + 1;
-
-    fetch(`https://acnhapi.com/v1a/${type}/${nextID}`)
-      .then((response) => response.json())
-      .then((results) =>
-        setFilters({
-          ...state,
-          currentItem: {
-            id: results.id,
-            name: results.name,
-            image_uri: results.image_uri,
-          },
-        })
-      );
+    setFilters({
+      ...state,
+      currentItem: {
+        id: results[nextID].id,
+        name: results[nextID].name,
+        image_uri: results[nextID].image_uri,
+        phrase: results[nextID]["catch-phrase"]
+      },
+    });
   };
 
   const getPrev = () => {
-    let nextID = currentItem.id - 1;
-
-    fetch(`https://acnhapi.com/v1a/${type}/${nextID}`)
-      .then((response) => response.json())
-      .then((results) =>
-        setFilters({
-          ...state,
-          currentItem: {
-            id: results.id,
-            name: results.name,
-            image_uri: results.image_uri,
-          },
-        })
-      );
+    let prevID = currentItem.id - 2;
+    console.log(`prev clicked and prev ID is ${prevID}`)
+    setFilters({
+      ...state,
+      currentItem: {
+        id: results[prevID].id,
+        name: results[prevID].name,
+        image_uri: results[prevID].image_uri,
+        phrase: results[prevID]["catch-phrase"]
+      },
+    });
+    
   };
 
   //toggle detail card visible and hidden
@@ -167,7 +158,6 @@ const App = () => {
           setDetailItem={setDetailItem}
         />
       </main>
-
     </div>
   );
 };
