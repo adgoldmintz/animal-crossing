@@ -1,4 +1,5 @@
 import React from "react";
+import './DetailView.css';
 
 const DetailView = ({
   selected: { id, name, image_uri, location, rarity, price, phrase, flickPrice },
@@ -8,6 +9,7 @@ const DetailView = ({
   getPrev,
   toggleDetailModal,
 }) => {
+
   const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (

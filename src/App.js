@@ -90,8 +90,6 @@ const App = () => {
       },
     });
 
-    console.log(currentItem)
-
   //toggle language (English or Japanese)
   const setLang = (e) =>
     setFilters({
