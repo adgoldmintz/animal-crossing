@@ -13,14 +13,14 @@ const App = () => {
     language: "USen",
     searchTerm: "",
     results: [],
-    types: undefined,
+    type: undefined,
     currentItem: {},
     loading: false,
     showDetailModal: false,
   });
 
   //destructure filter state for easy reference
-  const { results, currentItem, language, searchTerm, showDetailModal } = state;
+  const { results, currentItem, language, searchTerm, showDetailModal, type } = state;
 
   //fetch 'bugs' data set as default view on initial mount
   useEffect(() => {
@@ -147,6 +147,7 @@ const App = () => {
       {showDetailModal && (
         <DetailsView
           selected={currentItem}
+          type={type}
           lang={language}
           getNext={getNext}
           getPrev={getPrev}

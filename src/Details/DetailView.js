@@ -12,6 +12,7 @@ const DetailView = ({
     phrase,
     flickPrice,
   },
+  type,
   lang,
   resultsLength,
   getNext,
@@ -28,11 +29,12 @@ const DetailView = ({
         {id !== 1 && (
           <i className="fas fa-arrow-circle-left" onClick={getPrev} />
         )}
+        <i className="fas fa-times-circle" onClick={toggleDetailModal} />
         {id !== resultsLength && (
           <i className="fas fa-arrow-circle-right" onClick={getNext} />
         )}
-        <i className="fas fa-times-circle" onClick={toggleDetailModal} />
       </section>
+
       <section className="details-heading">
         <div>
           {name[`name-${lang}`].split(" ").map(capitalizeFirst).join(" ")}
@@ -48,7 +50,7 @@ const DetailView = ({
         {location && <p>Location: {location}</p>}
         {rarity && <p>Rarity: {rarity}</p>}
         <p>
-          Price: {price} (or {flickPrice} when sold to Flick)
+          Price: {price} {type === "bugs" && (`(or ${flickPrice} when sold to Flick)`)}
         </p>
       </div>
     </div>
