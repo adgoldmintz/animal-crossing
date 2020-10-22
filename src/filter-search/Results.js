@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Results.css";
 import noResults from "../assets/twins.png";
 
-const ResultsGrid = ({ searchResults, setDetailItem, term }) => {
+const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
   //state management for name label viewed on hover
   const [hover, labelState] = useState({
     id: null,
@@ -41,7 +41,7 @@ const ResultsGrid = ({ searchResults, setDetailItem, term }) => {
             <div key={id} className="results-item">
               {/*Label with name appears on hover */}
               {hover.id === id && (
-                <div style={nameLabelStyle}>{name["name-USen"]}</div>
+                <div style={nameLabelStyle}>{name[`name-${lang}`]}</div>
               )}
               <img
                 onMouseOver={() => handleMouseOver(id)}

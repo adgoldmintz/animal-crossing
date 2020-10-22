@@ -4,8 +4,9 @@ import "./App.css";
 //import child components
 import Heading from "./layout/MainHeading";
 import FilterBar from "./filter-search/FilterBar";
-import DetailsView from "./details/DetailView";
+import LoadingResults from "./layout/Loading";
 import ResultsGrid from "./filter-search/Results";
+import DetailsView from "./details/DetailView";
 
 const App = () => {
   //set up state management
@@ -15,12 +16,20 @@ const App = () => {
     results: [],
     type: undefined,
     currentItem: {},
-    loading: false,
+    loading: true,
     showDetailModal: false,
   });
 
   //destructure filter state for easy reference
-  const { results, currentItem, language, searchTerm, showDetailModal, type } = state;
+  const {
+    results,
+    currentItem,
+    language,
+    searchTerm,
+    showDetailModal,
+    type,
+    loading,
+  } = state;
 
   //fetch 'bugs' data set as default view on initial mount
   useEffect(() => {
@@ -31,6 +40,7 @@ const App = () => {
           ...state,
           type: "bugs",
           results,
+          loading: false,
         })
       );
     //eslint-disable-next-line
@@ -39,6 +49,10 @@ const App = () => {
   //set creature type and fetch data set
   const getCreatures = (e) => {
     let type = e.currentTarget.value;
+    setFilters({
+      ...state,
+      loading: true,
+    });
     fetch(`https://acnhapi.com/v1a/${type}`)
       .then((response) => response.json())
       .then((results) =>
@@ -47,6 +61,7 @@ const App = () => {
           searchTerm: "",
           type,
           results,
+          loading: false,
         })
       );
   };
@@ -143,6 +158,7 @@ const App = () => {
         getCreatures={getCreatures}
         setLang={setLang}
         searchTerm={searchTerm}
+        lang={language}
       />
 
       {showDetailModal && (
@@ -158,11 +174,16 @@ const App = () => {
       )}
 
       <main>
-        <ResultsGrid
-          searchResults={searchResults}
-          setDetailItem={setDetailItem}
-          term={searchTerm}
-        />
+        {loading ? (
+          <LoadingResults />
+        ) : (
+          <ResultsGrid
+            searchResults={searchResults}
+            setDetailItem={setDetailItem}
+            term={searchTerm}
+            lang={language}
+          />
+        )}
       </main>
     </div>
   );

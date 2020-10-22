@@ -50,7 +50,8 @@ const DetailView = ({
         {location && <p>Location: {location}</p>}
         {rarity && <p>Rarity: {rarity}</p>}
         <p>
-          Price: {price} {type === "bugs" && (`(or ${flickPrice} when sold to Flick)`)}
+          Price: {price}{" "}
+          {type === "bugs" && `(or ${flickPrice} when sold to Flick)`}
         </p>
       </div>
     </div>
