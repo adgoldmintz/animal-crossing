@@ -1,15 +1,23 @@
 import React from "react";
-import './DetailView.css';
+import "./DetailView.css";
 
 const DetailView = ({
-  selected: { id, name, image_uri, location, rarity, price, phrase, flickPrice },
+  selected: {
+    id,
+    name,
+    image_uri,
+    location,
+    rarity,
+    price,
+    phrase,
+    flickPrice,
+  },
   lang,
   resultsLength,
   getNext,
   getPrev,
   toggleDetailModal,
 }) => {
-
   const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
@@ -38,7 +46,9 @@ const DetailView = ({
         />
         <p>Location: {location}</p>
         <p>Rarity: {rarity}</p>
-        <p>Price: {price} (or {flickPrice} when sold to Flick)</p>
+        <p>
+          Price: {price} (or {flickPrice} when sold to Flick)
+        </p>
       </div>
     </div>
   );
