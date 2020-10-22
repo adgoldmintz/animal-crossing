@@ -18,6 +18,7 @@ const DetailView = ({
   getPrev,
   toggleDetailModal,
 }) => {
+  //Capitalize first letters of each word
   const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
@@ -44,8 +45,8 @@ const DetailView = ({
           src={image_uri}
           alt={name[`name-${lang}`]}
         />
-        <p>Location: {location}</p>
-        <p>Rarity: {rarity}</p>
+        {location && <p>Location: {location}</p>}
+        {rarity && <p>Rarity: {rarity}</p>}
         <p>
           Price: {price} (or {flickPrice} when sold to Flick)
         </p>
