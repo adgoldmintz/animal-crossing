@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Results.css'
 import noResults from "../assets/twins.png";
 
 const ResultsGrid = ({ searchResults, setDetailItem, term }) => {
