@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Results.css";
 import noResults from "../assets/twins.png";
 
-const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
-
+const ResultsGrid = ({ searchResults, setDetailItem, term, lang, loading }) => {
   //handle show and hide critter name on icon hover
   const [hover, labelState] = useState({
     id: null,
@@ -43,7 +42,6 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
           const { id, name, icon_uri } = creature;
           return (
             <div key={id} className="results-item">
-            
               {/*Label with name appears on hover */}
               {hover.id === id && (
                 <div style={nameLabelStyle}>{name[`name-${lang}`]}</div>

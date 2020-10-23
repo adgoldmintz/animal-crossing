@@ -26,7 +26,8 @@ const App = () => {
     language,
     searchTerm,
     showDetailModal,
-    type
+    type,
+    loading,
   } = state;
 
   //fetch 'bugs' data set as default view on initial mount
@@ -172,12 +173,13 @@ const App = () => {
       )}
 
       <main>
-          <ResultsGrid
-            searchResults={searchResults}
-            setDetailItem={setDetailItem}
-            term={searchTerm}
-            lang={language}
-          />
+        <ResultsGrid
+          searchResults={searchResults}
+          setDetailItem={setDetailItem}
+          term={searchTerm}
+          lang={language}
+          loading={loading}
+        />
       </main>
     </div>
   );
