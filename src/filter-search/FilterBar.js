@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './FilterBar.css'
 
 const FilterBar = ({
   getCreatures,

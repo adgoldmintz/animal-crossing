@@ -27,3 +27,7 @@
   display: inherit;
   align-content: space-between;
 }
+
+.details-controls i {
+  height: 100px;
+}
