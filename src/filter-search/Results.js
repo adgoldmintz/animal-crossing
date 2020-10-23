@@ -3,7 +3,8 @@ import "./Results.css";
 import noResults from "../assets/twins.png";
 
 const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
-  //state management for name label viewed on hover
+
+  //handle show and hide critter name on icon hover
   const [hover, labelState] = useState({
     id: null,
     show: false,
@@ -25,11 +26,14 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
     display: hover.show ? "flex" : "none",
   };
 
+  //begin component render
   if (searchResults.length < 1 && term) {
+    //show no search results found
     return (
+      //TODO: Update styling to center image and improve visibility
       <div>
         <p>No critters found!</p>
-        <img id="no-results-img" src={noResults} alt="No Results" />
+        <img id="no-results-img" src={noResults} alt="No Results Found" />
       </div>
     );
   } else {
@@ -39,6 +43,7 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang }) => {
           const { id, name, icon_uri } = creature;
           return (
             <div key={id} className="results-item">
+            
               {/*Label with name appears on hover */}
               {hover.id === id && (
                 <div style={nameLabelStyle}>{name[`name-${lang}`]}</div>

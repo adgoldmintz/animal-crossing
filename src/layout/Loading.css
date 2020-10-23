@@ -1,0 +1,10 @@
+.loading-wrapper {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 60px 20px 60px;
+  justify-content: center;
+  align-items: center;
+  background-color: #8dc9a4;
+}

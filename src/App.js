@@ -174,23 +174,15 @@ const App = () => {
       )}
 
       <main>
-        {loading ? (
-          <LoadingResults />
-        ) : (
           <ResultsGrid
             searchResults={searchResults}
             setDetailItem={setDetailItem}
             term={searchTerm}
             lang={language}
           />
-        )}
       </main>
     </div>
   );
 };
 
 export default App;
-
-//TODO:
-//add No critters found state
-// add loading state to wait until all data is loaded before mapping
