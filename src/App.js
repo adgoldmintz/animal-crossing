@@ -4,7 +4,6 @@ import "./App.css";
 //import child components
 import Heading from "./layout/MainHeading";
 import FilterBar from "./filter-search/FilterBar";
-import LoadingResults from "./layout/Loading";
 import ResultsGrid from "./filter-search/Results";
 import DetailsView from "./details/DetailView";
 
@@ -27,8 +26,7 @@ const App = () => {
     language,
     searchTerm,
     showDetailModal,
-    type,
-    loading,
+    type
   } = state;
 
   //fetch 'bugs' data set as default view on initial mount
