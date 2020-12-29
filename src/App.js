@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 //import child components
-import Heading from './Layout/MainHeading';
+import Heading from './Layout/Heading';
 import FilterBar from './filter-search/FilterBar';
 import ResultsGrid from './filter-search/Results';
 import DetailsView from './Details/DetailView';
