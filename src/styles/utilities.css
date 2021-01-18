@@ -1,0 +1,29 @@
+/* font */
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,500,700,800,900&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	/* border: 1px red solid; */
+}
+body {
+	padding: 5%;
+	background-color: #faf1c9;
+	/* background-image: url('../assets/background-leaves.png'); */
+	/* TODO: Add transparency and shrink repeat of background image */
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	overflow-x: hidden;
+	position: relative;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#acnh-logo {
+	max-width: 25%;
+	align-self: center;
+}

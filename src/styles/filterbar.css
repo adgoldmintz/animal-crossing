@@ -1,0 +1,108 @@
+/* Wrap filter bar */
+
+.filters-bar {
+	display: flex;
+	width: 100%;
+	padding: 10px 30px;
+	margin-bottom: 20px;
+	/* add relative position to try and get horizontal line behind content */
+	position: relative;
+	/* background: url('../assets/filterTexture.png'); */
+	justify-content: space-between;
+}
+
+#acnh-logo {
+	max-width: 25%;
+	z-index: 4;
+}
+
+.line {
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	background-color: grey;
+	height: 1.5px;
+	margin-left: -1000px;
+	margin-right: -1000px;
+}
+
+.filters-bar .species,
+.filters-bar .search-form,
+.filters-bar .languages {
+	display: flex;
+	height: 100%;
+	padding: 2px;
+	align-self: center;
+	z-index: 4;
+}
+
+/* Species toggles | buttons */
+.btn-wrapper {
+	display: flex;
+	position: relative;
+	align-self: center;
+	height: 100%;
+}
+
+/* Style Species Filter Buttons */
+.filters-bar button {
+	margin: 0px -1px;
+	height: 60px;
+	width: 60px;
+	background-color: white;
+	color: white;
+	padding: 5px;
+	border-radius: 50%;
+	border: none;
+}
+
+.filters-bar .species button {
+	color: black;
+}
+/* Icon inside button */
+.filter-icon {
+	cursor: pointer;
+	width: 100%;
+	filter: grayscale(100%);
+}
+
+.tooltip {
+	position: absolute;
+	background: goldenrod;
+	border-radius: 4px;
+	top: -30px;
+	left: 0;
+	right: 0;
+	height: 25px;
+	width: auto;
+	text-align: center;
+	color: #282828;
+}
+
+.filters-bar .species button:hover {
+	transform: scale(1.15);
+}
+
+/* Search Bar */
+.filters-bar .search-form {
+	margin-left: auto;
+	flex: auto;
+	background-color: #faf1c9;
+	z-index: 5;
+}
+
+/* Search Input */
+.search-form input {
+	background-color: #faf1c9;
+	border: none;
+	border-bottom: 3px solid grey;
+	color: #555;
+	font-size: 16px;
+	padding: 0px;
+}
+
+.filters-bar .languages {
+	margin-left: auto;
+}

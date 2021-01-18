@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './styles/utilities.css';
+import logo from './assets/ac_logo.png';
 
 //import child components
-import Heading from './Layout/Heading';
-import FilterBar from './filter-search/FilterBar';
-import ResultsGrid from './filter-search/Results';
-import DetailsView from './Details/DetailView';
+import FilterBar from './components/FilterBar';
+import ResultsGrid from './components/Results';
+import DetailsView from './components/DetailView';
 
 const App = () => {
 	//set up state management
@@ -149,30 +149,32 @@ const App = () => {
 
 	//begin view render
 	return (
-		<div>
-			<Heading />
-
-			<FilterBar
-				searchChange={handleSearchChange}
-				getCreatures={getCreatures}
-				setLang={setLang}
-				searchTerm={searchTerm}
-				lang={language}
-			/>
-
-			{showDetailModal && (
-				<DetailsView
-					selected={currentItem}
-					type={type}
-					lang={language}
-					getNext={getNext}
-					getPrev={getPrev}
-					resultsLength={results.length}
-					toggleDetailModal={toggleDetailModal}
-				/>
-			)}
-
+		<>
+			<header>
+				<div>Header content here </div>
+			</header>
 			<main>
+				<div>Introduction content </div>
+				<FilterBar
+					searchChange={handleSearchChange}
+					getCreatures={getCreatures}
+					setLang={setLang}
+					searchTerm={searchTerm}
+					lang={language}
+				/>
+
+				{showDetailModal && (
+					<DetailsView
+						selected={currentItem}
+						type={type}
+						lang={language}
+						getNext={getNext}
+						getPrev={getPrev}
+						resultsLength={results.length}
+						toggleDetailModal={toggleDetailModal}
+					/>
+				)}
+
 				<ResultsGrid
 					searchResults={searchResults}
 					setDetailItem={setDetailItem}
@@ -181,7 +183,7 @@ const App = () => {
 					loading={loading}
 				/>
 			</main>
-		</div>
+		</>
 	);
 };
 
