@@ -20,8 +20,10 @@ const FilterBar = ({
 	const [critterType, setActiveCritter] = useState(types[0]);
 	const [langType, setActiveLang] = useState(lang);
 
+	const colors = { yellow: '254, 203, 77', text: '92, 85, 60' };
 	const activeBtn = {
-		backgroundColor: '#FF0000',
+		backgroundColor: `rgb(${colors.yellow})`,
+		color: '#FFFFFF',
 	};
 
 	return (

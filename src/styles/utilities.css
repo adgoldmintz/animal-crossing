@@ -10,10 +10,10 @@
 
 body {
 	background-color: #faf1c9;
-	/* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	overflow-x: hidden;
 	color: rgb(92, 85, 60);
+	/* font-size: 1rem; */
 }
 
 header {
@@ -33,6 +33,7 @@ h2 {
 	color: rgb(40, 79, 0);
 	background-color: rgb(218, 216, 136);
 	display: inline-block;
+	white-space: nowrap;
 }
 
 .app-intro {
@@ -53,6 +54,7 @@ h2 {
 
 .other-wrapper h2 {
 	font-size: 1.1rem;
+	margin-top: 20px;
 	margin-bottom: 5px;
 }
 
@@ -65,7 +67,7 @@ h2 {
 }
 
 .other-wrapper > div {
-	flex: 1 1 auto;
+	flex: 1 1;
 	margin: 20px 0px;
 }
 
@@ -90,4 +92,5 @@ main {
 	align-items: center;
 	margin-top: 20px;
 	padding: 60px;
+	flex-wrap: wrap;
 }

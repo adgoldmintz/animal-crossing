@@ -21,9 +21,9 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang, loading }) => {
 			show: false,
 		});
 
-	const nameLabelStyle = {
-		display: hover.show ? 'flex' : 'none',
-	};
+	// const nameLabelStyle = {
+	// 	display: hover.show ? 'flex' : 'none',
+	// };
 
 	//begin component render
 	if (searchResults.length < 1 && term) {
