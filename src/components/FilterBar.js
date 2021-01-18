@@ -69,19 +69,6 @@ const FilterBar = ({
 						</button>
 					))}
 				</div>
-
-				{/* Search Input 
-				<div>
-					<form className='search-form'>
-						<input
-							type='text'
-							placeholder='search critters'
-							value={searchTerm}
-							onChange={searchChange}
-						/>
-					</form>
-				</div>
-				*/}
 			</div>
 		</>
 	);

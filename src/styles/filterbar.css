@@ -11,21 +11,18 @@
 	justify-content: space-between;
 }
 
-#acnh-logo {
-	max-width: 25%;
-	z-index: 4;
-}
-
 .line {
 	position: absolute;
 	top: 50%;
 	bottom: 50%;
 	left: 0;
 	right: 0;
-	background-color: grey;
+	background-color: rgb(92, 85, 60);
 	height: 1.5px;
-	margin-left: -1000px;
-	margin-right: -1000px;
+
+	/* Extend line beyond parent by voiding margins */
+	margin-left: -60px;
+	margin-right: -60px;
 }
 
 .filters-bar .species,

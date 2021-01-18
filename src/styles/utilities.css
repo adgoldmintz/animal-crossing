@@ -7,23 +7,77 @@
 	padding: 0px;
 	/* border: 1px red solid; */
 }
+
 body {
-	padding: 5%;
 	background-color: #faf1c9;
-	/* background-image: url('../assets/background-leaves.png'); */
-	/* TODO: Add transparency and shrink repeat of background image */
+	/* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	overflow-x: hidden;
+	color: rgb(92, 85, 60);
+}
+
+header {
+	height: 100px;
+	padding: 60px;
+	margin-top: 20px;
+	margin-bottom: 200px;
+}
+
+h1,
+h2 {
+	letter-spacing: 0px;
+	font-weight: 400;
+	padding-bottom: 10px;
+}
+
+.app-intro {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+/* App Title */
+.title-wrapper {
 	position: relative;
+	display: block;
+}
+.title-wrapper h1 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+/* App Intro & Instructions */
+
+.other-wrapper {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 40px;
+}
+
+.other-wrapper > div {
+	flex: 1 1 auto;
+	margin: 10px;
+}
+
+#acnh-logo {
+	width: 8%;
+	position: absolute;
+	left: 320px;
+	top: 20px;
+	transform: rotate(20deg);
+	/* TODO: Add swing interaction on hover */
+}
+
+@media only screen and (max-width: 768px) {
+	.other-wrapper {
+		flex-direction: column;
+	}
 }
 
 main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-#acnh-logo {
-	max-width: 25%;
-	align-self: center;
+	margin-top: 20px;
+	padding: 60px;
 }

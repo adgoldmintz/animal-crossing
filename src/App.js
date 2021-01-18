@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/utilities.css';
-import logo from './assets/ac_logo.png';
+import logo from './assets/nh_logo.png';
 
 //import child components
 import FilterBar from './components/FilterBar';
@@ -151,10 +151,38 @@ const App = () => {
 	return (
 		<>
 			<header>
-				<div>Header content here </div>
+				<div className='app-intro'>
+					<div className='title-wrapper'>
+						<h1>Introduction content </h1>
+						<img src={logo} id='acnh-logo' />
+					</div>
+					<div className='other-wrapper'>
+						<div>
+							<h2>Intro title</h2>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
+							consequat neque luctus in. Morbi cursus nec velit id pretium.
+							Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
+							venenatis mauris, id lobortis nibh mi ut lacus. Cras vel bibendum
+							metus, id tincidunt mauris. Sed et auctor nibh. Mauris quis turpis
+							vel magna iaculis pretium.
+						</div>
+
+						<div>
+							<h2>Instruction title</h2>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
+							consequat neque luctus in. Morbi cursus nec velit id pretium.
+							Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
+							venenatis mauris, id lobortis nibh mi ut lacus. Cras vel bibendum
+							metus, id tincidunt mauris. Sed et auctor nibh. Mauris quis turpis
+							vel magna iaculis pretium.
+						</div>
+					</div>
+				</div>
 			</header>
+
 			<main>
-				<div>Introduction content </div>
 				<FilterBar
 					searchChange={handleSearchChange}
 					getCreatures={getCreatures}
