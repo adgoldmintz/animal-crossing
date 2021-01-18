@@ -44,7 +44,9 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang, loading }) => {
 						<div key={id} className='results-item'>
 							{/*Label with name appears on hover */}
 							{hover.id === id && (
-								<div style={nameLabelStyle}>{name[`name-${lang}`]}</div>
+								<div className=' name-tooltip' style={{ display: 'block' }}>
+									<span>{name[`name-${lang}`]} </span>
+								</div>
 							)}
 							<img
 								onMouseOver={() => handleMouseOver(id)}

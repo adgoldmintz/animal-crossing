@@ -1,22 +1,44 @@
 /* results table  */
 .results-wrapper {
-	border-radius: 15px;
 	display: flex;
-	flex-direction: row;
 	flex-wrap: wrap;
-	/* margin: 10px 40px 20px 40px; */
 	justify-content: center;
 	align-items: center;
-	background-color: #8dc9a4;
+	border: 1px solid green;
 }
 
 .results-item {
 	margin: 0.5em;
-	height: 100px;
+	max-height: 100px;
 	width: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+}
+
+.name-tooltip {
+	position: absolute;
+	background: #f9f9f0;
+	border-radius: 2px;
+	padding: 5px;
+	top: -30%;
+	left: 0%;
+	transform: translate(-50%, -50%);
+	color: #282828;
+	transform: rotate(-2deg);
+	/* align-content: center; */
+	white-space: nowrap;
+	display: inline;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.name-tooltip span {
+	background: #f9f9f0;
+	font-size: 1rem;
+	display: inline;
+	border: 0.5px solid black;
+	padding: 3px;
 }
 
 .results-item :hover {
