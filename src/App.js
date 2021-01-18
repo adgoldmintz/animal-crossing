@@ -158,7 +158,10 @@ const App = () => {
 					</div>
 					<div className='other-wrapper'>
 						<div>
-							<h2>Intro title</h2>
+							<span className='title-style'>
+								<h2>Intro title</h2>
+								<br />
+							</span>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
 							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
 							consequat neque luctus in. Morbi cursus nec velit id pretium.
@@ -170,6 +173,7 @@ const App = () => {
 
 						<div>
 							<h2>Instruction title</h2>
+							<br />
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
 							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
 							consequat neque luctus in. Morbi cursus nec velit id pretium.
