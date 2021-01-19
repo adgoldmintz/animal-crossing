@@ -102,3 +102,10 @@
 .filters-bar .languages {
 	margin-left: auto;
 }
+
+@media only screen and (max-width: 768px) {
+	.line {
+		margin-left: -40px;
+		margin-right: -40px;
+	}
+}

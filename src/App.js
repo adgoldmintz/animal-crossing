@@ -149,7 +149,7 @@ const App = () => {
 
 	//begin view render
 	return (
-		<>
+		<div className='master-container'>
 			<header>
 				<div className='app-intro'>
 					<div className='title-wrapper'>
@@ -215,7 +215,7 @@ const App = () => {
 					loading={loading}
 				/>
 			</main>
-		</>
+		</div>
 	);
 };
 
