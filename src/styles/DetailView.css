@@ -9,7 +9,7 @@
 
 	/* layout */
 	display: flex;
-	align-content: center;
+	align-items: stretch;
 	padding: 40px;
 	width: 100%;
 	max-width: 75%;
@@ -19,11 +19,13 @@
 	/* style */
 	background-color: #faf1c9;
 	font-weight: 600;
+	background-color: pink;
 }
 
 /* Critter name label, image, and controls */
 .critter-img {
-	flex: 1;
+	/* display: flex; */
+	/* flex: 1; */
 	border-right: 1px solid black;
 	padding: 10px;
 	align-items: center;
@@ -74,11 +76,12 @@
 }
 
 .critter-details {
-	flex: 1;
+	/* flex: 1; */
 	border-left: 1px solid black;
 	padding: 10px;
 	height: 100%;
 	width: 100%;
+	background-color: blue;
 }
 
 @media only screen and (max-width: 768px) {

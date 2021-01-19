@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/detailView.css';
+
 const DetailView = ({
 	selected: {
 		id,

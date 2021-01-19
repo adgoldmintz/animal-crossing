@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/filterbar.css';
-import logo from '../assets/ac_logo.png';
 
 const FilterBar = ({
 	getCreatures,

@@ -42,8 +42,13 @@ const App = () => {
 					loading: false,
 				}),
 			);
-		//eslint-disable-next-line
-	}, []);
+
+		if (showDetailModal) {
+			document.body.classList.add('scroll-lock');
+		} else {
+			document.body.classList.remove('scroll-lock');
+		}
+	}, [showDetailModal]);
 
 	//set creature type and fetch data set
 	const getCreatures = (e) => {
