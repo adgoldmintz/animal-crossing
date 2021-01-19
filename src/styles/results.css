@@ -31,7 +31,7 @@
 }
 
 .search-img:hover {
-	border: 2px dashed grey;
+	border: 2px dashed rgb(92, 85, 60);
 }
 
 .name-tooltip {
@@ -42,7 +42,7 @@
 	top: -30%;
 	left: 0%;
 	transform: translate(-50%, -50%);
-	color: #282828;
+	color: rgb(92, 85, 60);
 	transform: rotate(-2deg);
 	/* align-content: center; */
 	white-space: nowrap;
@@ -56,7 +56,7 @@
 	background: #f9f9f0;
 	font-size: 1rem;
 	display: inline;
-	border: 0.5px double black;
+	border: 0.5px double rgb(92, 85, 60);
 	padding: 3px;
 }
 

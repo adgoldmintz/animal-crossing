@@ -154,7 +154,11 @@ const App = () => {
 				<div className='app-intro'>
 					<div className='title-wrapper'>
 						<h1>Introduction content </h1>
-						<img src={logo} id='acnh-logo' />
+						<img
+							src={logo}
+							id='acnh-logo'
+							alt='Animal Crossing New Horizons Logo'
+						/>
 					</div>
 					<div className='other-wrapper'>
 						<div>
