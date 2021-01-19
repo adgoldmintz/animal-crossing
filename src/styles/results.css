@@ -48,6 +48,8 @@
 	white-space: nowrap;
 	display: inline;
 	box-shadow: 0 8px 6px -6px black;
+	/* Increase z-index, otherwise longer tooltip corner gets 'tucked' under outline of next results-item border */
+	z-index: 1;
 }
 
 .name-tooltip span {
