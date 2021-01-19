@@ -154,77 +154,78 @@ const App = () => {
 
 	//begin view render
 	return (
-		<div className='master-container'>
-			<header>
-				<div className='app-intro'>
-					<div className='title-wrapper'>
-						<h1>Introduction content </h1>
-						<img
-							src={logo}
-							id='acnh-logo'
-							alt='Animal Crossing New Horizons Logo'
-						/>
-					</div>
-					<div className='other-wrapper'>
-						<div>
-							<span className='title-style'>
-								<h2>Intro title</h2>
+		<>
+			<div id='master-container'>
+				<header>
+					<div className='app-intro'>
+						<div className='title-wrapper'>
+							<h1>Introduction content </h1>
+							<img
+								src={logo}
+								id='acnh-logo'
+								alt='Animal Crossing New Horizons Logo'
+							/>
+						</div>
+						<div className='other-wrapper'>
+							<div>
+								<span className='title-style'>
+									<h2>Intro title</h2>
+									<br />
+								</span>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+								varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
+								consequat neque luctus in. Morbi cursus nec velit id pretium.
+								Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
+								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
+								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
+								quis turpis vel magna iaculis pretium.
+							</div>
+
+							<div>
+								<h2>Instruction title</h2>
 								<br />
-							</span>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
-							consequat neque luctus in. Morbi cursus nec velit id pretium.
-							Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
-							venenatis mauris, id lobortis nibh mi ut lacus. Cras vel bibendum
-							metus, id tincidunt mauris. Sed et auctor nibh. Mauris quis turpis
-							vel magna iaculis pretium.
-						</div>
-
-						<div>
-							<h2>Instruction title</h2>
-							<br />
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
-							consequat neque luctus in. Morbi cursus nec velit id pretium.
-							Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
-							venenatis mauris, id lobortis nibh mi ut lacus. Cras vel bibendum
-							metus, id tincidunt mauris. Sed et auctor nibh. Mauris quis turpis
-							vel magna iaculis pretium.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+								varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
+								consequat neque luctus in. Morbi cursus nec velit id pretium.
+								Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
+								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
+								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
+								quis turpis vel magna iaculis pretium.
+							</div>
 						</div>
 					</div>
-				</div>
-			</header>
+				</header>
 
-			<main>
-				<FilterBar
-					searchChange={handleSearchChange}
-					getCreatures={getCreatures}
-					setLang={setLang}
-					searchTerm={searchTerm}
-					lang={language}
-				/>
-
-				{showDetailModal && (
-					<DetailsView
-						selected={currentItem}
-						type={type}
+				<main>
+					<FilterBar
+						searchChange={handleSearchChange}
+						getCreatures={getCreatures}
+						setLang={setLang}
+						searchTerm={searchTerm}
 						lang={language}
-						getNext={getNext}
-						getPrev={getPrev}
-						resultsLength={results.length}
-						toggleDetailModal={toggleDetailModal}
 					/>
-				)}
 
-				<ResultsGrid
-					searchResults={searchResults}
-					setDetailItem={setDetailItem}
-					term={searchTerm}
+					<ResultsGrid
+						searchResults={searchResults}
+						setDetailItem={setDetailItem}
+						term={searchTerm}
+						lang={language}
+						loading={loading}
+					/>
+				</main>
+			</div>
+			{showDetailModal && (
+				<DetailsView
+					selected={currentItem}
+					type={type}
 					lang={language}
-					loading={loading}
+					getNext={getNext}
+					getPrev={getPrev}
+					resultsLength={results.length}
+					toggleDetailModal={toggleDetailModal}
 				/>
-			</main>
-		</div>
+			)}
+		</>
 	);
 };
 

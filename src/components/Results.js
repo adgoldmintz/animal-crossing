@@ -44,7 +44,7 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang, loading }) => {
 						<div key={id} className='results-item'>
 							{/*Label with name appears on hover */}
 							{hover.id === id && (
-								<div className=' name-tooltip' style={{ display: 'block' }}>
+								<div className='name-tooltip'>
 									<span>{name[`name-${lang}`]} </span>
 								</div>
 							)}
