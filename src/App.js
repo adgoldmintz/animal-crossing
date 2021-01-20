@@ -220,18 +220,19 @@ const App = () => {
 						loading={loading}
 					/>
 				</main>
+
+				{showDetailModal && (
+					<DetailsView
+						selected={currentItem}
+						type={type}
+						lang={language}
+						getNext={getNext}
+						getPrev={getPrev}
+						resultsLength={results.length}
+						toggleDetailModal={toggleDetailModal}
+					/>
+				)}
 			</div>
-			{showDetailModal && (
-				<DetailsView
-					selected={currentItem}
-					type={type}
-					lang={language}
-					getNext={getNext}
-					getPrev={getPrev}
-					resultsLength={results.length}
-					toggleDetailModal={toggleDetailModal}
-				/>
-			)}
 		</>
 	);
 };

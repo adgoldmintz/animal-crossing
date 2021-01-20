@@ -28,7 +28,7 @@ const DetailView = ({
 
 	return (
 		//TODO: Don't display modal until all props are loaded
-		<div className='test'>
+		<div id='backdrop'>
 			<div className='critter-wrapper'>
 				<section className='critter-img-col'>
 					<div className='critter-name'>

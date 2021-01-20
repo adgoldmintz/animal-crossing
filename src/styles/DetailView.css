@@ -1,5 +1,15 @@
 /* detail modal */
 
+/* Add darkened backdrop behind modal when opened */
+#backdrop {
+	background-color: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
 .critter-wrapper {
 	/* center onscreen */
 	position: fixed;
@@ -11,12 +21,13 @@
 	display: flex;
 	width: 100%;
 	max-width: 75%;
-	max-height: 90vh;
+	max-height: 95%;
 	z-index: 1000;
 
 	/* style */
 	border: double rgb(153, 153, 153);
 	background-color: #faf1c9;
+	border-radius: 5px;
 }
 
 /* Critter name label, image, and controls */
