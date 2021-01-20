@@ -15,14 +15,15 @@
 	z-index: 1000;
 
 	/* style */
-	border: 1px solid black;
+	border: double rgb(153, 153, 153);
 	background-color: #faf1c9;
 }
 
 /* Critter name label, image, and controls */
 .critter-img-col {
+	flex-direction: column;
 	padding: 40px;
-	justify-content: center;
+	justify-content: space-between;
 	max-height: 100%;
 	width: 100%;
 	text-align: center;
@@ -63,14 +64,13 @@
 /* Back, forward, and close  */
 
 .img-controls {
-	align-self: center;
-	justify-self: flex-end;
-	max-width: 100%;
-	max-height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
 }
 
-#left-arrow,
-#right-arrow,
+#back,
+#forward,
 #close {
 	font-size: 2rem;
 	opacity: 0.75;
@@ -78,15 +78,15 @@
 	cursor: pointer;
 }
 
-#left-arrow:hover,
-#right-arrow:hover,
+#back:hover,
+#forward:hover,
 #close:hover {
 	opacity: 1;
 }
 
-#close {
+/* #close {
 	margin: 0px 60px;
-}
+} */
 
 /* Column with quote, location, price, etc */
 .critter-details-col {

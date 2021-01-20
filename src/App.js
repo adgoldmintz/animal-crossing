@@ -135,6 +135,8 @@ const App = () => {
 				phrase: results[index]['catch-phrase'],
 				price: results[index].price,
 				flickPrice: results[index]['price-flick'],
+				shadow: results[index].shadow,
+				speed: results[index].speed,
 			},
 		});
 	};

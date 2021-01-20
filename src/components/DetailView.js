@@ -11,6 +11,8 @@ const DetailView = ({
 		price,
 		phrase,
 		flickPrice,
+		shadow,
+		speed,
 	},
 	type,
 	lang,
@@ -19,8 +21,6 @@ const DetailView = ({
 	getPrev,
 	toggleDetailModal,
 }) => {
-
-
 	//Capitalize first letters of each word
 	const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -43,7 +43,7 @@ const DetailView = ({
 						{id !== 1 && (
 							<i
 								className='fas fa-arrow-circle-left'
-								id='left-arrow'
+								id='back'
 								onClick={getPrev}
 							/>
 						)}
@@ -55,7 +55,7 @@ const DetailView = ({
 						{id !== resultsLength && (
 							<i
 								className='fas fa-arrow-circle-right'
-								id='right-arrow'
+								id='forward'
 								onClick={getNext}
 							/>
 						)}
@@ -64,6 +64,7 @@ const DetailView = ({
 
 				<section className='critter-details-col'>
 					<div id='phrase'>{phrase}</div>
+
 					<div className='detail-wrapper'>
 						{location && (
 							<div>
@@ -80,6 +81,26 @@ const DetailView = ({
 									<div className='title'>Rarity</div>
 								</div>
 								{rarity}
+							</div>
+						)}
+					</div>
+
+					<div className='detail-wrapper'>
+						{speed && (
+							<div>
+								<div className='title-wrapper'>
+									<div className='title'>Speed</div>
+								</div>
+								{speed}
+							</div>
+						)}
+
+						{shadow && (
+							<div>
+								<div className='title-wrapper'>
+									<div className='title'>Shadow</div>
+								</div>
+								{shadow}
 							</div>
 						)}
 					</div>
