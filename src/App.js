@@ -199,7 +199,11 @@ const App = () => {
 								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
 								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
 								quis turpis vel magna iaculis pretium.
-								<SearchBar handleChange={handleSearchChange} />
+								<SearchBar
+									handleChange={handleSearchChange}
+									lang={language}
+									setLang={setLang}
+								/>
 							</div>
 						</div>
 					</div>

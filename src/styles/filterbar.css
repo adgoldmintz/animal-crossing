@@ -2,12 +2,11 @@
 
 .filters-bar {
 	display: flex;
-	width: 100%;
+	min-width: 100%;
 	padding: 10px 30px;
 	margin-bottom: 20px;
 	/* add relative position to try and get horizontal line behind content */
 	position: relative;
-	/* background: url('../assets/filterTexture.png'); */
 	justify-content: space-between;
 }
 
@@ -18,7 +17,6 @@
 	left: 0;
 	right: 0;
 	background-color: rgb(92, 85, 60);
-	height: 1.5px;
 
 	/* Extend line beyond parent by voiding margins */
 	margin-left: -60px;
@@ -45,7 +43,7 @@
 
 /* Style Species Filter Buttons */
 .filters-bar button {
-	margin: 0px -1px;
+	margin: 0px 3px;
 	height: 60px;
 	width: 60px;
 	background-color: white;
@@ -80,27 +78,7 @@
 	box-shadow: 0 8px 6px -6px black;
 }
 
-/* Search Bar */
-.filters-bar .search-form {
-	margin-left: auto;
-	flex: auto;
-	background-color: #faf1c9;
-}
 
-/* Search Input */
-.search-form input {
-	background-color: #faf1c9;
-	border: none;
-	border-bottom: 2px solid rgb(92, 85, 60);
-	color: #555;
-	font-size: 1rem;
-	padding: 0px;
-	margin: 0px 20px;
-}
-
-.filters-bar .languages {
-	margin-left: auto;
-}
 
 @media only screen and (max-width: 768px) {
 	.line {

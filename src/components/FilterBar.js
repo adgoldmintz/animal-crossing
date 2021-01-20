@@ -55,7 +55,7 @@ const FilterBar = ({
 						</div>
 					))}
 				</div>
-				{/* Language Toggle */}
+				{/* Language Toggle 
 				<div className='languages'>
 					{languages.map(({ code, text }, i) => (
 						<button
@@ -70,6 +70,7 @@ const FilterBar = ({
 						</button>
 					))}
 				</div>
+				*/}
 			</div>
 		</>
 	);

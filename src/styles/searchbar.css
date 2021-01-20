@@ -1,0 +1,27 @@
+/* Search Input */
+
+.lang-search-wrapper {
+	display: flex;
+}
+
+.control-wrapper {
+	flex: 1 1;
+	flex-wrap: wrap;
+}
+
+.search-form input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1.5px double rgb(92, 85, 60);
+	color: rgb(92, 85, 60);
+	font-size: 1rem;
+	/* height: 2rem; */
+	padding-top: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+	.lang-search-wrapper,
+	.control-wrapper {
+		flex-direction: column;
+	}
+}
