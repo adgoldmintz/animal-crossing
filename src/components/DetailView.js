@@ -19,8 +19,12 @@ const DetailView = ({
 	getPrev,
 	toggleDetailModal,
 }) => {
+
+
 	//Capitalize first letters of each word
 	const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+	//Increase image size if type is fish. API returns smaller pics :(
 
 	return (
 		//TODO: Don't display modal until all props are loaded
@@ -59,25 +63,27 @@ const DetailView = ({
 				</section>
 
 				<section className='critter-details-col'>
-					<div id='phrase' style={{ fontStyle: 'italic', fontWeight: 'bold' }}>
-						{phrase}
+					<div id='phrase'>{phrase}</div>
+					<div className='detail-wrapper'>
+						{location && (
+							<div>
+								<div className='title-wrapper'>
+									<div className='title'>Location</div>
+								</div>
+								{location}
+							</div>
+						)}
+
+						{rarity && (
+							<div>
+								<div className='title-wrapper'>
+									<div className='title'>Rarity</div>
+								</div>
+								{rarity}
+							</div>
+						)}
 					</div>
-					{location && (
-						<div>
-							<div className='title-wrapper'>
-								<div className='title'>Location</div>
-							</div>
-							{location}
-						</div>
-					)}
-					{rarity && (
-						<div>
-							<div className='title-wrapper'>
-								<div className='title'>Rarity</div>
-							</div>
-							{rarity}
-						</div>
-					)}
+
 					<div>
 						<div className='title-wrapper'>
 							<div className='title'>Price</div>

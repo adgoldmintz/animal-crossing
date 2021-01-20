@@ -30,7 +30,6 @@
 	border-right: double rgb(153, 153, 153);
 	/* TODO: Set border bottom on to double on small screen */
 	border-bottom: 4px none rgb(153, 153, 153);
-	border: 1px solid black;
 }
 
 /* Tag over critter image  */
@@ -102,6 +101,20 @@
 
 #phrase {
 	margin-bottom: 50px;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+.detail-wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.detail-wrapper > div {
+	flex: 1;
+	margin: 20px 0px;
 }
 
 @media only screen and (max-width: 768px) {
