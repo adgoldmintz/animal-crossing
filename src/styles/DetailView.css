@@ -62,8 +62,6 @@
 	width: 100%;
 	text-align: center;
 	border-right: double rgb(153, 153, 153);
-	/* TODO: Set border bottom on to double on small screen */
-	border-bottom: 4px none rgb(153, 153, 153);
 }
 
 .critter-wrapper-fish .critter-img-col {
@@ -168,5 +166,24 @@
 	.critter-wrapper {
 		flex-direction: column;
 	}
-	/* TODO: Allow vertical scroll only on smaller screen */
+
+	.critter-img-col {
+		border-bottom: 4px double rgb(153, 153, 153);
+	}
+
+	#phrase {
+		margin-bottom: 20px;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 1.35rem;
+		line-height: 1;
+		/* set height to prevent siblings from shifting down */
+		height: 60px;
+	}
+
+	.detail-wrapper {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
 }
