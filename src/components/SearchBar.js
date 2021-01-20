@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/searchbar.css';
 
 const SearchBar = ({ lang, handleChange, searchTerm, setLang }) => {
-	const [langType, setActiveLang] = useState(lang);
 
 	const languages = [
 		{ code: 'USen', text: 'English' },

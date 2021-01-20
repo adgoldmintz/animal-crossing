@@ -9,15 +9,10 @@ const FilterBar = ({
 	lang,
 }) => {
 	const types = ['bugs', 'fish', 'sea'];
-	const languages = [
-		{ code: 'USen', text: 'E' },
-		{ code: 'JPja', text: 'JP' },
-	];
 
 	//handle style changes to active button
 	//TODO: Update colors. Red is a placeholder
 	const [critterType, setActiveCritter] = useState(types[0]);
-	const [langType, setActiveLang] = useState(lang);
 
 	const colors = { yellow: '254, 203, 77', text: '92, 85, 60' };
 	const activeBtn = {
