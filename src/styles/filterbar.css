@@ -91,10 +91,11 @@
 .search-form input {
 	background-color: #faf1c9;
 	border: none;
-	border-bottom: 3px solid grey;
+	border-bottom: 2px solid rgb(92, 85, 60);
 	color: #555;
-	font-size: 16px;
+	font-size: 1rem;
 	padding: 0px;
+	margin: 0px 20px;
 }
 
 .filters-bar .languages {

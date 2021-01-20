@@ -6,6 +6,7 @@ import logo from './assets/nh_logo.png';
 import FilterBar from './components/FilterBar';
 import ResultsGrid from './components/Results';
 import DetailsView from './components/DetailView';
+import SearchBar from './components/SearchBar';
 
 const App = () => {
 	//set up state management
@@ -198,6 +199,7 @@ const App = () => {
 								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
 								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
 								quis turpis vel magna iaculis pretium.
+								<SearchBar handleChange={handleSearchChange} />
 							</div>
 						</div>
 					</div>
