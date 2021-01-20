@@ -2,46 +2,45 @@
 
 /* Add darkened backdrop behind modal when opened */
 #backdrop {
-	background-color: rgba(0, 0, 0, 0.8);
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 .critter-wrapper {
 	/* center onscreen */
-	position: fixed;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 
 	/* layout */
 	display: flex;
-	width: 100%;
-	max-width: 75%;
-	max-height: 95%;
+	width: 960px;
+	max-width: 80%;
+	max-height: auto;
 	z-index: 1000;
 
 	/* style */
-	border: double rgb(153, 153, 153);
 	background-color: #faf1c9;
+	border: double rgb(153, 153, 153);
 	border-radius: 5px;
 }
 
 /* Critter name label, image, and controls */
 .critter-img-col {
 	flex-direction: column;
+	flex: 1;
 	padding: 40px;
-	justify-content: space-between;
-	max-height: 100%;
 	width: 100%;
 	text-align: center;
-
 	border-right: double rgb(153, 153, 153);
 	/* TODO: Set border bottom on to double on small screen */
 	border-bottom: 4px none rgb(153, 153, 153);
+	min-height: auto;
 }
 
 /* Tag over critter image  */
@@ -53,7 +52,6 @@
 	white-space: nowrap;
 	display: inline;
 	box-shadow: 0 8px 6px -6px black;
-	align-self: center;
 }
 
 .critter-name span {
@@ -66,17 +64,15 @@
 
 /* loaded image */
 #critter-pic {
-	max-height: 100%;
-	max-width: 100%;
+	height: auto;
+	width: 100%;
 	filter: drop-shadow(0px 5px 5px black);
-	align-self: center;
 }
 
-/* Back, forward, and close  */
+/* Back, forward, and close controls*/
 
 .img-controls {
 	display: flex;
-	align-items: flex-start;
 	justify-content: space-between;
 }
 
@@ -95,19 +91,14 @@
 	opacity: 1;
 }
 
-/* #close {
-	margin: 0px 60px;
-} */
-
 /* Column with quote, location, price, etc */
 .critter-details-col {
+	flex-direction: column;
+	flex: 1;
 	padding: 40px;
-	height: 100%;
+	/* align-items: stretch;
+	align-self: stretch; */
 	width: 100%;
-}
-
-.critter-details-col > div {
-	margin-bottom: 20px;
 }
 
 #phrase {
@@ -116,11 +107,14 @@
 	font-style: italic;
 	font-size: 1.5rem;
 	line-height: 1;
+	/* set height to prevent siblings from shifting down */
+	height: 60px;
 }
 
 .detail-wrapper {
 	display: flex;
 	flex-direction: row;
+	margin-bottom: 20px;
 }
 
 .detail-wrapper > div {
@@ -132,4 +126,5 @@
 	.critter-wrapper {
 		flex-direction: column;
 	}
+	/* TODO: Allow vertical scroll only on smaller screen */
 }

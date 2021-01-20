@@ -8,7 +8,9 @@
 	/* border: 1px red solid; */
 }
 
+html,
 body {
+	height: 100%;
 	background-color: #faf1c9;
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	overflow-x: hidden;
