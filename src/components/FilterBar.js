@@ -50,22 +50,7 @@ const FilterBar = ({
 						</div>
 					))}
 				</div>
-				{/* Language Toggle 
-				<div className='languages'>
-					{languages.map(({ code, text }, i) => (
-						<button
-							key={text}
-							value={code}
-							onClick={(e) => {
-								setLang(e);
-								setActiveLang(code);
-							}}
-							style={langType === code ? activeBtn : null}>
-							{text}
-						</button>
-					))}
-				</div>
-				*/}
+				
 			</div>
 		</>
 	);

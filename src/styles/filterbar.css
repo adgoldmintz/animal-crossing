@@ -3,7 +3,7 @@
 .filters-bar {
 	display: flex;
 	min-width: 100%;
-	padding: 10px 30px;
+	padding: 10px;
 	margin-bottom: 20px;
 	/* add relative position to try and get horizontal line behind content */
 	position: relative;
@@ -77,8 +77,6 @@
 	color: rgb(92, 85, 60);
 	box-shadow: 0 8px 6px -6px black;
 }
-
-
 
 @media only screen and (max-width: 768px) {
 	.line {

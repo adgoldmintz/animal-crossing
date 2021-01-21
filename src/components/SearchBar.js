@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/searchbar.css';
 
 const SearchBar = ({ lang, handleChange, searchTerm, setLang }) => {
-
 	const languages = [
 		{ code: 'USen', text: 'English' },
 		{ code: 'JPja', text: 'Japanese' },
@@ -12,12 +11,13 @@ const SearchBar = ({ lang, handleChange, searchTerm, setLang }) => {
 		<div className='lang-search-wrapper'>
 			<div className='control-wrapper'>
 				<div className='language-wrapper'>
-					<span className='title-style'>
+					<span className='title-wrapper'>
 						<h2>Select Language</h2>
 					</span>
 					<p>
 						Choose if you'd like to see critter names in English or Japanese.
 					</p>
+
 					<form>
 						<div className='lang-input' onChange={setLang}>
 							{languages.map(({ code, text }, i) => (
@@ -36,10 +36,10 @@ const SearchBar = ({ lang, handleChange, searchTerm, setLang }) => {
 					</form>
 				</div>
 				<div className='search-form'>
-					<span className='title-style'>
+					<span className='title-wrapper'>
 						<h2>Search for Critters</h2>
-						<p>Dynamically search for critters by name.</p>
 					</span>
+					<p>Dynamically search for critters by name.</p>
 					<br />
 
 					<input

@@ -18,80 +18,70 @@ body {
 	/* font-size: 1rem; */
 }
 
-/* Class added to body when detailsview modal is open */
-.scroll-lock {
-	height: 100vh;
-	overflow-y: hidden;
-	/* Avoid jumping due to width reflow */
-	padding-right: 15px;
-}
-
-header {
-	/* margin-top: 20px; */
-	margin-bottom: 20px;
-	padding: 10px 0px;
-}
-
 #master-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 50px;
-}
-
-.modal-backdrop {
-	background-color: black;
-	opacity: 0.5;
+	padding: 5%;
+	/* TODO: Swap border for texture/pattern */
+	/* border: 10px solid green; */
 }
 
 h1,
-h2,
-.title {
+h2 {
 	letter-spacing: -0.5px;
 	font-weight: 100;
-	padding-bottom: 10px;
 	border-radius: 5px;
-	padding: 2px;
 	color: rgb(40, 79, 0);
 	background-color: rgb(218, 216, 136);
 	display: inline-block;
 	white-space: nowrap;
 }
 
-.app-intro {
+p {
+	font-size: 18px;
+}
+
+/* Intro Section */
+
+header {
+	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
-	text-align: left;
-	/* padding: 60px; */
+}
+
+.app-intro {
+	display: flex;
+	margin-top: 2em;
 }
 
 /* App Title */
+
+.app-intro .title-wrapper {
+	position: relative;
+	padding-bottom: 1em;
+}
+
 .title-wrapper {
 	position: relative;
+	/* padding-bottom: 1em; */
 }
 
-.title-wrapper {
-	font-size: 1.25 rem;
-	margin-bottom: 10px;
-}
-
-.other-wrapper h2 {
+.title-wrapper * {
+	border: 1px solid red;
 	font-size: 1.1rem;
-	margin-top: 20px;
-	margin-bottom: 5px;
+	margin-bottom: 0.75em;
+	padding: 0px 0.25em;
 }
 
-/* App Intro & Instructions */
-
-.other-wrapper {
-	display: flex;
-	flex-direction: row;
+#app-title {
+	font-size: 2rem;
+	margin-bottom: 0;
 }
 
-.other-wrapper > div {
-	flex: 1 1;
-	padding: 10px;
-	margin: 10px 0px;
+.intro-copy {
+	flex: 1;
+	margin-right: 10%;
 }
 
 #acnh-logo {
@@ -111,16 +101,24 @@ main {
 	width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-	.other-wrapper {
-		flex-direction: column;
-	}
+/* Class added to body when detailsview modal is open */
+.scroll-lock {
+	height: 100vh;
+	overflow-y: hidden;
+	/* Avoid jumping due to width reflow */
+	padding-right: 15px;
+}
 
+@media only screen and (max-width: 768px) {
 	.master-container {
 		padding: 40px;
 	}
 
 	#acnh-logo {
 		display: none;
+	}
+
+	.app-intro {
+		flex-direction: column;
 	}
 }

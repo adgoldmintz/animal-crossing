@@ -53,8 +53,9 @@ const App = () => {
 		} else {
 			document.body.classList.remove('scroll-lock');
 		}
-		// eslint-disable-next-line
 	}, [showDetailModal]);
+
+	//  ----- BEGIN HELPERS -----  //
 
 	//set creature type and fetch data set
 	const getCreatures = (e) => {
@@ -142,6 +143,15 @@ const App = () => {
 		});
 	};
 
+	//toggle detail modal visible and hidden
+	const toggleDetailModal = () => {
+		setFilters({
+			...state,
+			showDetailModal: !showDetailModal,
+		});
+	};
+
+	//move forward and back through creature index via modal
 	const getNext = () => {
 		let nextIndex = currentItem.id + 1;
 		setCreatureDetail(nextIndex);
@@ -152,94 +162,71 @@ const App = () => {
 		setCreatureDetail(prevIndex);
 	};
 
-	//toggle detail card visible and hidden
-	const toggleDetailModal = () => {
-		setFilters({
-			...state,
-			showDetailModal: !showDetailModal,
-		});
-	};
-
-	//begin view render
+	//  ----- BEGIN RENDER -----  //
 	return (
-		<>
-			<div id='master-container'>
-				<header>
-					<div className='app-intro'>
-						<div className='title-wrapper'>
-							<h1>Introduction content </h1>
-							<img
-								src={logo}
-								id='acnh-logo'
-								alt='Animal Crossing New Horizons Logo'
-							/>
-						</div>
-						<div className='other-wrapper'>
-							<div>
-								<span className='title-style'>
-									<h2>Intro title</h2>
-									<br />
-								</span>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-								varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
-								consequat neque luctus in. Morbi cursus nec velit id pretium.
-								Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
-								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
-								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
-								quis turpis vel magna iaculis pretium.
-							</div>
+		<div id='master-container'>
+			<header>
+				<div className='title-wrapper'>
+					<h1 id='app-title'>Critterpedia Lite</h1>
+					<img
+						src={logo}
+						id='acnh-logo'
+						alt='Animal Crossing New Horizons Logo'
+					/>
+				</div>
 
-							<div>
-								<h2>Instruction title</h2>
-								<br />
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-								varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
-								consequat neque luctus in. Morbi cursus nec velit id pretium.
-								Pellentesque aliquam, felis vel iaculis eleifend, lectus ipsum
-								venenatis mauris, id lobortis nibh mi ut lacus. Cras vel
-								bibendum metus, id tincidunt mauris. Sed et auctor nibh. Mauris
-								quis turpis vel magna iaculis pretium.
-								<SearchBar
-									handleChange={handleSearchChange}
-									lang={language}
-									setLang={setLang}
-								/>
-							</div>
-						</div>
+				<div className='app-intro'>
+					<div className='intro-copy'>
+						<span className='title-wrapper'>
+							<h2>Intro title</h2>
+						</span>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
+							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
+							consequat neque luctus in. <strong>Morbi cursus</strong> nec velit
+							id pretium. Pellentesque aliquam, felis vel iaculis eleifend,
+							lectus ipsum venenatis mauris, id lobortis nibh mi ut lacus.
+						</p>
 					</div>
-				</header>
 
-				<main>
-					<FilterBar
-						searchChange={handleSearchChange}
-						getCreatures={getCreatures}
+					<SearchBar
+						handleChange={handleSearchChange}
+						lang={language}
 						setLang={setLang}
-						searchTerm={searchTerm}
-						lang={language}
 					/>
+				</div>
+			</header>
 
-					<ResultsGrid
-						searchResults={searchResults}
-						setDetailItem={setDetailItem}
-						term={searchTerm}
-						lang={language}
-						loading={loading}
-					/>
-				</main>
+			<main>
+				<FilterBar
+					searchChange={handleSearchChange}
+					getCreatures={getCreatures}
+					setLang={setLang}
+					searchTerm={searchTerm}
+					lang={language}
+				/>
 
-				{showDetailModal && (
-					<DetailsView
-						selected={currentItem}
-						type={type}
-						lang={language}
-						getNext={getNext}
-						getPrev={getPrev}
-						resultsLength={results.length}
-						toggleDetailModal={toggleDetailModal}
-					/>
-				)}
-			</div>
-		</>
+				<ResultsGrid
+					searchResults={searchResults}
+					setDetailItem={setDetailItem}
+					term={searchTerm}
+					lang={language}
+					loading={loading}
+				/>
+			</main>
+
+			{showDetailModal && (
+				<DetailsView
+					selected={currentItem}
+					type={type}
+					lang={language}
+					getNext={getNext}
+					getPrev={getPrev}
+					resultsLength={results.length}
+					toggleDetailModal={toggleDetailModal}
+				/>
+			)}
+		</div>
 	);
 };
 

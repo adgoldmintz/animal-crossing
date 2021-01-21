@@ -3,8 +3,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	/* border: 1px solid green; */
-	background-color: #faf1c9;
+	align-self: center;
+	/* background-color: #faf1c9; */
 	justify-content: center;
 }
 
@@ -15,7 +15,7 @@
 	justify-content: center;
 	position: relative;
 	border: 1px solid green;
-	padding: 2px;
+	/* padding: 2px; */
 }
 
 .results-item:hover {
@@ -61,5 +61,5 @@
 }
 
 #no-results-img {
-	height: 100px;
+	height: 50%;
 }

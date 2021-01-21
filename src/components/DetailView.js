@@ -72,7 +72,7 @@ const DetailView = ({
 						{location && (
 							<div>
 								<div className='title-wrapper'>
-									<div className='title'>Location</div>
+									<h2>Location</h2>
 								</div>
 								{location}
 							</div>
@@ -81,7 +81,7 @@ const DetailView = ({
 						{rarity && (
 							<div>
 								<div className='title-wrapper'>
-									<div className='title'>Rarity</div>
+									<h2>Rarity</h2>
 								</div>
 								{rarity}
 							</div>
@@ -92,7 +92,7 @@ const DetailView = ({
 						{speed && (
 							<div>
 								<div className='title-wrapper'>
-									<div className='title'>Speed</div>
+									<h2>Speed</h2>
 								</div>
 								{speed}
 							</div>
@@ -101,7 +101,7 @@ const DetailView = ({
 						{shadow && (
 							<div>
 								<div className='title-wrapper'>
-									<div className='title'>Shadow</div>
+									<h2>Shadow</h2>
 								</div>
 								{shadow}
 							</div>
@@ -110,7 +110,7 @@ const DetailView = ({
 
 					<div>
 						<div className='title-wrapper'>
-							<div className='title'>Price</div>
+							<h2>Price</h2>
 						</div>
 						{price}
 						{type === 'bugs' && (
