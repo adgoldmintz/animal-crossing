@@ -23,7 +23,7 @@ const FilterBar = ({
 	return (
 		<>
 			<div className='filters-bar'>
-				<div className='line'></div>
+				<span id='line'> </span>
 
 				{/* Species Filters */}
 				<div className='species'>
@@ -50,7 +50,6 @@ const FilterBar = ({
 						</div>
 					))}
 				</div>
-				
 			</div>
 		</>
 	);

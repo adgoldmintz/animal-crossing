@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/utilities.css';
-import logo from './assets/nh_logo.png';
+import logo from './assets/ac_logo.png';
 
 //import child components
 import FilterBar from './components/FilterBar';
@@ -165,14 +165,10 @@ const App = () => {
 	//  ----- BEGIN RENDER -----  //
 	return (
 		<div id='master-container'>
+			<img src={logo} id='acnh-logo' alt='Animal Crossing New Horizons Logo' />
 			<header>
 				<div className='title-wrapper'>
 					<h1 id='app-title'>Critterpedia Lite</h1>
-					<img
-						src={logo}
-						id='acnh-logo'
-						alt='Animal Crossing New Horizons Logo'
-					/>
 				</div>
 
 				<div className='app-intro'>

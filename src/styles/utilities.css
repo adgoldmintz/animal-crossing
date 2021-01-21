@@ -23,8 +23,9 @@ body {
 	flex-direction: column;
 	align-items: center;
 	padding: 5%;
+	position: relative;
 	/* TODO: Swap border for texture/pattern */
-	/* border: 10px solid green; */
+	border: 10px solid rgb(218, 216, 136);
 }
 
 h1,
@@ -53,18 +54,14 @@ header {
 .app-intro {
 	display: flex;
 	margin-top: 2em;
+	/* position: relative; */
 }
 
 /* App Title */
 
 .app-intro .title-wrapper {
-	position: relative;
+	/* position: relative; */
 	padding-bottom: 1em;
-}
-
-.title-wrapper {
-	position: relative;
-	/* padding-bottom: 1em; */
 }
 
 .title-wrapper * {
@@ -84,11 +81,12 @@ header {
 }
 
 #acnh-logo {
-	max-width: 10%;
+	max-width: 12%;
+	min-width: 10%;
 	position: absolute;
-	left: 320px;
-	top: 10px;
-	transform: rotate(20deg);
+	right: 40px;
+	top: 20px;
+	/* transform: rotate(20deg); */
 	/* TODO: Add swing interaction on hover */
 }
 
@@ -104,7 +102,7 @@ main {
 .scroll-lock {
 	height: 100vh;
 	overflow-y: hidden;
-	/* Avoid jumping due to width reflow */
+	/* Avoid jumping due to width reflow - padding accounts for vert scrollbar */
 	padding-right: 15px;
 }
 
@@ -114,10 +112,13 @@ main {
 	}
 
 	#acnh-logo {
-		display: none;
+		align-self: center;
 	}
-
 	.app-intro {
 		flex-direction: column;
+	}
+
+	.intro-copy {
+		align-items: center;
 	}
 }
