@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/detailView.css';
+import '../styles/detail-view.css';
 
 const DetailView = ({
 	selected: {
