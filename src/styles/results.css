@@ -1,11 +1,11 @@
 /* results table  */
 .results-wrapper {
 	display: flex;
+	flex-grow: 1;
 	flex-wrap: wrap;
-	align-items: center;
-	align-self: center;
-	/* background-color: #faf1c9; */
 	justify-content: center;
+	margin-top: -1px;
+	margin-left: -1px;
 }
 
 .results-item {
@@ -14,8 +14,10 @@
 	display: flex;
 	justify-content: center;
 	position: relative;
-	border: 1px solid green;
-	/* padding: 2px; */
+	outline: 1px rgb(92, 85, 60);
+	outline-style: double;
+	margin-top: 1px;
+	margin-left: 1px;
 }
 
 .results-item:hover {
@@ -32,6 +34,7 @@
 
 .search-img:hover {
 	border: 2px dashed rgb(92, 85, 60);
+	transform: scale(1.1);
 }
 
 .name-tooltip {
