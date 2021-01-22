@@ -27,8 +27,7 @@
 }
 
 .filters-bar .species,
-.filters-bar .search-form,
-.filters-bar .languages {
+.filters-bar .availability {
 	display: flex;
 	height: 100%;
 	padding: 2px;
@@ -45,7 +44,7 @@
 
 /* Style Species Filter Buttons */
 .filters-bar button {
-	margin: 0px 3px;
+	margin: 0px -1px;
 	height: 60px;
 	width: 60px;
 	background-color: white;
@@ -53,6 +52,11 @@
 	padding: 5px;
 	border-radius: 50%;
 	border: none;
+}
+
+.filters-bar button i {
+	font-size: 1.75rem;
+	/* opacity: 0.5; */
 }
 
 .filters-bar button:hover {

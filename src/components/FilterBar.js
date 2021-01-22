@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import '../styles/filterbar.css';
 
-const FilterBar = ({
-	getCreatures,
-	setLang,
-	searchChange,
-	searchTerm,
-	lang,
-}) => {
-	const types = ['bugs', 'fish', 'sea'];
+const FilterBar = ({ getCreatures }) => {
+	const types = [
+		{ label: 'bugs', icon: 'bug' },
+		{ label: 'fish', icon: 'fish' },
+		{ label: 'sea', icon: 'fab fa-octopus-deploy' },
+	];
+
+	const modes = [
+		{ label: 'all', icon: 'eye' },
+		{ label: 'discover', icon: 'compass' },
+	];
 
 	//handle style changes to active button
-	//TODO: Update colors. Red is a placeholder
-	const [critterType, setActiveCritter] = useState(types[0]);
+	const [critterType, setActiveCritter] = useState(types[0].label);
+	const [modeType, setActiveMode] = useState(modes[0].label);
 
+	// TODO: Can this be done without extra variables?
 	const colors = { yellow: '254, 203, 77', text: '92, 85, 60' };
 	const activeBtn = {
 		backgroundColor: `rgb(${colors.yellow})`,
@@ -23,29 +27,48 @@ const FilterBar = ({
 	return (
 		<>
 			<div className='filters-bar'>
+				{/*Horizontal line behind buttons */}
 				<span id='line'> </span>
 
 				{/* Species Filters */}
 				<div className='species'>
-					{types.map((type, i) => (
-						<div key={type} className='btn-wrapper'>
-							{critterType === type ? (
-								<div className='tooltip'>{type}</div>
+					{types.map(({ label, icon }, i) => (
+						<div key={label} className='btn-wrapper'>
+							{critterType === label ? (
+								<div className='tooltip'>{label}</div>
 							) : null}
 
 							<button
-								style={critterType === type ? activeBtn : null}
-								key={type}
-								value={type}
-								onClick={(e) => {
-									getCreatures(e);
-									setActiveCritter(types[i]);
+								style={critterType === label ? activeBtn : null}
+								key={label}
+								value={label}
+								onClick={() => {
+									getCreatures(modeType, label);
+									setActiveCritter(types[i].label);
 								}}>
-								<img
-									className='filter-icon'
-									src={require(`../assets/${type}.png`)}
-									alt={`${type} icon`}
-								/>
+								<i className={label !== 'sea' ? `fas fa-${icon}` : icon}></i>
+							</button>
+						</div>
+					))}
+				</div>
+
+				{/* Availability Filters */}
+				<div className='availability'>
+					{modes.map(({ label, icon }, i) => (
+						<div key={label} className='btn-wrapper'>
+							{modeType === label ? (
+								<div className='tooltip'>{label}</div>
+							) : null}
+
+							<button
+								style={modeType === label ? activeBtn : null}
+								key={label}
+								value={label}
+								onClick={() => {
+									setActiveMode(modes[i].label);
+									getCreatures(label, critterType);
+								}}>
+								<i className={`fas fa-${icon}`}></i>
 							</button>
 						</div>
 					))}

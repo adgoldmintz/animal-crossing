@@ -12,26 +12,30 @@ const App = () => {
 	//set up state management
 	const [state, setFilters] = useState({
 		language: 'USen',
+		hemisphere: 'northern',
 		searchTerm: '',
 		results: [],
 		type: undefined,
 		currentItem: {},
 		loading: true,
 		showDetailModal: false,
+		currentMonth: new Date().getMonth() + 1,
 	});
 
 	//destructure filter state for easy reference
 	const {
-		results,
-		currentItem,
 		language,
+		hemisphere,
 		searchTerm,
-		showDetailModal,
+		results,
 		type,
+		currentItem,
 		loading,
+		showDetailModal,
+		currentMonth,
 	} = state;
 
-	//fetch 'bugs' data set as default view on initial mount
+	//fetch ALL 'bugs' data set as default view on initial mount
 	useEffect(() => {
 		fetch(`https://acnhapi.com/v1a/bugs`)
 			.then((response) => response.json())
@@ -48,7 +52,6 @@ const App = () => {
 
 	// Check for showDetailModal state to toggle body scrolling
 	useEffect(() => {
-		
 		if (showDetailModal) {
 			document.body.classList.add('scroll-lock');
 		} else if (!showDetailModal) {
@@ -56,15 +59,17 @@ const App = () => {
 		}
 	}, [showDetailModal]);
 
-	//  ----- BEGIN HELPERS -----  //
+	//  ----- BEGIN HANDLERS -----  //
 
 	//set creature type and fetch data set
-	const getCreatures = (e) => {
-		let type = e.currentTarget.value;
+	const getCreatures = (mode, type) => {
+		console.log(mode);
+
 		setFilters({
 			...state,
 			loading: true,
 		});
+
 		fetch(`https://acnhapi.com/v1a/${type}`)
 			.then((response) => response.json())
 			.then((results) =>
@@ -72,7 +77,15 @@ const App = () => {
 					...state,
 					searchTerm: '',
 					type,
-					results,
+					// Filter results by availablity current month and selected hemisphere
+					results:
+						mode !== 'all'
+							? results.filter((creature) =>
+									creature.availability[`month-array-${hemisphere}`].includes(
+										currentMonth,
+									),
+							  )
+							: results,
 					loading: false,
 				}),
 			);
@@ -181,8 +194,7 @@ const App = () => {
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
 							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
 							consequat neque luctus in. <strong>Morbi cursus</strong> nec velit
-							id pretium. Pellentesque aliquam, felis vel iaculis eleifend,
-							lectus ipsum venenatis mauris, id lobortis nibh mi ut lacus.
+							id pretium.
 						</p>
 					</div>
 
@@ -195,13 +207,7 @@ const App = () => {
 			</header>
 
 			<main>
-				<FilterBar
-					searchChange={handleSearchChange}
-					getCreatures={getCreatures}
-					setLang={setLang}
-					searchTerm={searchTerm}
-					lang={language}
-				/>
+				<FilterBar getCreatures={getCreatures} />
 
 				<ResultsGrid
 					searchResults={searchResults}
