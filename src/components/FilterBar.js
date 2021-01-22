@@ -17,11 +17,8 @@ const FilterBar = ({ getCreatures }) => {
 	const [critterType, setActiveCritter] = useState(types[0].label);
 	const [modeType, setActiveMode] = useState(modes[0].label);
 
-	// TODO: Can this be done without extra variables?
-	const colors = { yellow: '254, 203, 77', text: '92, 85, 60' };
 	const activeBtn = {
-		backgroundColor: `rgb(${colors.yellow})`,
-		color: '#FFFFFF',
+		color: `rgb(254, 203, 77)`,
 	};
 
 	return (

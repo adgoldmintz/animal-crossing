@@ -44,7 +44,7 @@
 
 /* Style Species Filter Buttons */
 .filters-bar button {
-	margin: 0px -1px;
+	margin: 0px -3px;
 	height: 60px;
 	width: 60px;
 	background-color: white;
@@ -85,10 +85,10 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.filters-bar {
+	/* .filters-bar {
 		align-items: center;
 		justify-content: center;
-	}
+	} */
 	.line {
 		margin-left: -40px;
 		margin-right: -40px;
