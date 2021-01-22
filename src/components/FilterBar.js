@@ -10,7 +10,7 @@ const FilterBar = ({ getCreatures }) => {
 
 	const modes = [
 		{ label: 'all', icon: 'eye' },
-		{ label: 'discover', icon: 'compass' },
+		{ label: 'discovery', icon: 'compass' },
 	];
 
 	//handle style changes to active button

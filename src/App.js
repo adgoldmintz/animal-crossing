@@ -20,6 +20,7 @@ const App = () => {
 		loading: true,
 		showDetailModal: false,
 		currentMonth: new Date().getMonth() + 1,
+		mode: 'all',
 	});
 
 	//destructure filter state for easy reference
@@ -33,6 +34,7 @@ const App = () => {
 		loading,
 		showDetailModal,
 		currentMonth,
+		mode,
 	} = state;
 
 	//fetch ALL 'bugs' data set as default view on initial mount
@@ -63,8 +65,6 @@ const App = () => {
 
 	//set creature type and fetch data set
 	const getCreatures = (mode, type) => {
-		console.log(mode);
-
 		setFilters({
 			...state,
 			loading: true,
@@ -77,6 +77,7 @@ const App = () => {
 					...state,
 					searchTerm: '',
 					type,
+					mode,
 					// Filter results by availablity current month and selected hemisphere
 					results:
 						mode !== 'all'
@@ -138,6 +139,13 @@ const App = () => {
 			language: e.target.value,
 		});
 
+	//toggle language (English or Japanese)
+	const setHemisphere = (e) =>
+		setFilters({
+			...state,
+			hemisphere: e.target.value,
+		});
+
 	// move forward and backward through selected critter in detail view
 	const setCreatureDetail = (index) => {
 		setFilters({
@@ -196,12 +204,28 @@ const App = () => {
 							consequat neque luctus in. <strong>Morbi cursus</strong> nec velit
 							id pretium.
 						</p>
+
+						<span className='title-wrapper'>
+							<h2>{`${mode[0].toUpperCase()}${mode.slice(1)} Mode`}</h2>
+						</span>
+						{mode === 'all' ? (
+							<p>
+								View <strong>all critters</strong> available in the game.
+							</p>
+						) : (
+							<p>
+								View <strong>only</strong> critters available in your hemisphere{' '}
+								<strong>this month</strong>.
+							</p>
+						)}
 					</div>
 
 					<SearchBar
 						handleChange={handleSearchChange}
 						lang={language}
 						setLang={setLang}
+						hemisphere={hemisphere}
+						setHemisphere={setHemisphere}
 					/>
 				</div>
 			</header>

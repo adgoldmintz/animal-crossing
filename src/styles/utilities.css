@@ -78,6 +78,9 @@ header {
 .intro-copy {
 	flex: 1;
 	margin-right: 10%;
+}
+
+.intro-copy p {
 	margin-bottom: 20px;
 }
 
