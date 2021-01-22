@@ -42,12 +42,9 @@
 	background: #f9f9f0;
 	border-radius: 2px;
 	padding: 5px;
-	top: -30%;
-	left: 0%;
-	transform: translate(-50%, -50%);
+	top: -20%;
 	color: rgb(92, 85, 60);
 	transform: rotate(-2deg);
-	/* align-content: center; */
 	white-space: nowrap;
 	display: inline;
 	box-shadow: 0 8px 6px -6px black;
