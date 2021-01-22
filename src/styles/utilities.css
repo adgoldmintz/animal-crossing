@@ -24,8 +24,6 @@ body {
 	align-items: center;
 	padding: 5%;
 	position: relative;
-	/* TODO: Swap border for texture/pattern */
-	border: 10px solid rgb(218, 216, 136);
 }
 
 h1,
