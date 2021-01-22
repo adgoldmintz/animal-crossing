@@ -31,7 +31,9 @@ const DetailView = ({
 		<div id='backdrop'>
 			<div
 				className={
-					type === 'fish' ? `critter-wrapper-fish` : `critter-wrapper`
+					window.screen.width > 768 && type === 'fish'
+						? `critter-wrapper-fish`
+						: `critter-wrapper`
 				}>
 				<section className='critter-img-col'>
 					<div className='critter-name'>
@@ -86,9 +88,7 @@ const DetailView = ({
 								{rarity}
 							</div>
 						)}
-					</div>
 
-					<div className='detail-wrapper'>
 						{speed && (
 							<div>
 								<div className='title-wrapper'>

@@ -48,9 +48,10 @@ const App = () => {
 
 	// Check for showDetailModal state to toggle body scrolling
 	useEffect(() => {
+		
 		if (showDetailModal) {
 			document.body.classList.add('scroll-lock');
-		} else {
+		} else if (!showDetailModal) {
 			document.body.classList.remove('scroll-lock');
 		}
 	}, [showDetailModal]);

@@ -107,13 +107,15 @@ main {
 }
 
 @media only screen and (max-width: 768px) {
+
 	.master-container {
 		padding: 40px;
 	}
 
 	#acnh-logo {
-		align-self: center;
+		display: none;
 	}
+
 	.app-intro {
 		flex-direction: column;
 	}
