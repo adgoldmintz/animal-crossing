@@ -78,6 +78,7 @@ header {
 .intro-copy {
 	flex: 1;
 	margin-right: 10%;
+	margin-bottom: 20px;
 }
 
 #acnh-logo {
@@ -107,7 +108,6 @@ main {
 }
 
 @media only screen and (max-width: 768px) {
-
 	.master-container {
 		padding: 40px;
 	}
