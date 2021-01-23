@@ -16,6 +16,9 @@ body {
 	overflow-x: hidden;
 	color: rgb(103, 81, 62);
 	/* font-size: 1rem; */
+
+	/* Avoid jumping due to width reflow - padding accounts for vert scrollbar */
+	margin-left: calc(100vw - 100%);
 }
 
 #master-container {
@@ -104,8 +107,6 @@ main {
 .scroll-lock {
 	height: 100vh;
 	overflow-y: hidden;
-	/* Avoid jumping due to width reflow - padding accounts for vert scrollbar */
-	padding-right: 15px;
 }
 
 @media only screen and (max-width: 768px) {
