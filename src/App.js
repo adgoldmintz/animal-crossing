@@ -196,28 +196,27 @@ const App = () => {
 				<div className='app-intro'>
 					<div className='intro-copy'>
 						<span className='title-wrapper'>
-							<h2>Intro title</h2>
+							<h2>Welcome</h2>
 						</span>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-							varius urna, sed lobortis augue. Etiam eleifend elit nunc, vel
-							consequat neque luctus in. <strong>Morbi cursus</strong> nec velit
-							id pretium.
+							Welcome to <strong>Critterpedia Lite</strong>! This is a simple
+							React app built to help ACNH players discover which critters are
+							currently available in their hemisphere.
+							<br></br>
+							<br></br>
+							Use the filters in this intro and on the grid below to customize
+							your critter view.
+							<br></br>
+							<br></br>
+							<em>
+								A big thank you to the{' '}
+								<a href='http://acnhapi.com/'>ACNH API team</a> and to{' '}
+								<a href='https://critterpedia-plus.mutoo.im/#/discovery/insects'>
+									Ninja from HiddenLeaf
+								</a>{' '}
+								for the inspiration!
+							</em>
 						</p>
-
-						<span className='title-wrapper'>
-							<h2>{`${mode[0].toUpperCase()}${mode.slice(1)} Mode`}</h2>
-						</span>
-						{mode === 'all' ? (
-							<p>
-								View <strong>all critters</strong> available in the game.
-							</p>
-						) : (
-							<p>
-								View <strong>only</strong> critters available in your hemisphere{' '}
-								<strong>this month</strong>.
-							</p>
-						)}
 					</div>
 
 					<SearchBar
@@ -226,6 +225,7 @@ const App = () => {
 						setLang={setLang}
 						hemisphere={hemisphere}
 						setHemisphere={setHemisphere}
+						mode={mode}
 					/>
 				</div>
 			</header>

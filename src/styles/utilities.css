@@ -55,13 +55,12 @@ header {
 .app-intro {
 	display: flex;
 	margin-top: 2em;
-	/* position: relative; */
+	margin-bottom: 3em;
 }
 
 /* App Title */
 
 .app-intro .title-wrapper {
-	/* position: relative; */
 	padding-bottom: 1em;
 }
 

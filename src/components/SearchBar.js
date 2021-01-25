@@ -8,6 +8,7 @@ const SearchBar = ({
 	setLang,
 	setHemisphere,
 	hemisphere,
+	mode,
 }) => {
 	const languages = [
 		{ code: 'USen', text: 'English' },
@@ -68,18 +69,32 @@ const SearchBar = ({
 						</div>
 					</form>
 				</div>
+
 				<div className='search-form'>
 					<span className='title-wrapper'>
 						<h2>Search for Critters</h2>
 					</span>
 					<p>Dynamically search for critters by name.</p>
-					<br />
 
 					<input
 						placeholder='Start searching!'
 						value={searchTerm}
 						onChange={handleChange}></input>
 				</div>
+
+				<span className='title-wrapper'>
+					<h2>{`${mode[0].toUpperCase()}${mode.slice(1)} Mode`}</h2>
+				</span>
+				{mode === 'all' ? (
+					<p>
+						View <strong>all critters</strong> available in the game.
+					</p>
+				) : (
+					<p>
+						View only critters available in your <strong>selected</strong>{' '}
+						hemisphere this month.
+					</p>
+				)}
 			</div>
 		</div>
 	);
