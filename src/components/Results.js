@@ -21,13 +21,12 @@ const ResultsGrid = ({ searchResults, setDetailItem, term, lang, loading }) => {
 			show: false,
 		});
 
-
 	//begin component render
 	if (searchResults.length < 1 && term) {
 		//show no search results found
 		return (
 			//TODO: Update styling to center image and improve visibility
-			<div>
+			<div className='no-results'>
 				<p>No critters found!</p>
 				<img id='no-results-img' src={noResults} alt='No Results Found' />
 			</div>

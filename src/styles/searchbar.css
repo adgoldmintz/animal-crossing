@@ -22,9 +22,14 @@
 	background-color: transparent;
 	border: none;
 	border-bottom: 1.5px double rgb(92, 85, 60);
-	color: rgb(92, 85, 60);
 	margin: 5px 0px;
-	
+	font-size: medium;
+	color: rgb(92, 85, 60);
+	width: 80%;
+}
+
+::placeholder {
+	color: rgb(40, 79, 0);
 }
 
 a {
