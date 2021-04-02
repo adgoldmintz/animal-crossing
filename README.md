@@ -6,7 +6,7 @@ I wanted to see how far I could take interactions with a simple API call without
 This app leverages the [AnimalCrossing API](http://acnhapi.com/) RESTFUL API to help users discover **fish, bugs, and sea creatures** currently available in their hemisphere. Users can filter by hemisphere and type. Looking for a specific critter? Just use the dynamic search feature. 
 
 ## View Live Code
-Click [here](https://adgoldmintz.github.io/animal-crossing/) to view the live site hosted on GitHub Pages.
+Click [here](https://agoldmintz.github.io/animal-crossing/) to view the live site hosted on GitHub Pages.
 
 ## Run This App Locally
 
