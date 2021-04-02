@@ -1,4 +1,10 @@
 /* results table  */
+
+.no-results {
+	align-items: center;
+	text-align: center;
+	font-size: large;
+}
 .results-wrapper {
 	display: flex;
 	flex-grow: 1;
