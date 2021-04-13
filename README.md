@@ -1,4 +1,5 @@
-## [🐞 Critterpedia Lite! 🐛] (https://goldmintz.github.io/critterpedia/) ##
+# [🐞 Critterpedia Lite 🐛](https://goldmintz.github.io/critterpedia/)
+
 
 ## Overview
 This lightweight project was created with [Create React App](https://github.com/facebook/create-react-app).
