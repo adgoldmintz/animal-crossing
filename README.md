@@ -6,7 +6,7 @@ This lightweight project was created with [Create React App](https://github.com/
 I wanted to see how far I could take interactions with a simple API call without the need for additional frameworks or libraries (like Redux).
 
 ### Screenshots
-*coming soon*
+![](critterpedia.gif)
 
 
 ## Features & Functionality
